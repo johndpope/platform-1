@@ -13,6 +13,6 @@
     "clean": "yarn workspaces foreach --all --interlaced --verbose --parallel --jobs unlimited run clean && rimraf node_modules"
   },
   "devDependencies": {
-    "rimraf": "^3.0.2"
+    "rimraf": "^5.0.1"
   }
 }
