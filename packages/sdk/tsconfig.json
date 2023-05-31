@@ -1,5 +1,6 @@
 {
   "extends": "../../tsconfig.json",
+  "include": ["./src/**/*"],
   "compilerOptions": {
     "emitDeclarationOnly": true,
     "declaration": true,
@@ -8,11 +9,6 @@
     "baseUrl": "./",
     "paths": {
       "~/*": ["./src/*"]
-    },
-
-    "plugins": [
-      { "transform": "typescript-transform-paths" },
-      { "transform": "typescript-transform-paths", "afterDeclarations": true }
-    ]
+    }
   }
 }
