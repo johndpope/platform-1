@@ -1,0 +1,19 @@
+{
+  "license": "MIT",
+  "packageManager": "yarn@3.3.0",
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  },
+  "scripts": {
+    "platform-ui": "yarn workspace @stability/platform-ui",
+    "dev": "yarn workspaces foreach --all --interlaced --verbose --parallel --jobs unlimited run dev",
+    "build": "yarn workspaces foreach --all --interlaced --verbose --jobs unlimited run build",
+    "clean": "yarn workspaces foreach --all --interlaced --verbose --parallel --jobs unlimited run clean && rimraf node_modules"
+  },
+  "devDependencies": {
+    "rimraf": "^3.0.2",
+    "yarn": "^1.22.19"
+  }
+}

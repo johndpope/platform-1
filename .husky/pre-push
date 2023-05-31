@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+. "$(dirname "$0")/common.sh"
+
+# Ensure the entire project still compiles
+blue=$(tput setaf 4)
+normal=$(tput sgr0)
+printf "%b" "${blue}Type checking... ${normal}"
+yarn platform-ui build:types
