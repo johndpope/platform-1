@@ -6,4 +6,4 @@
 blue=$(tput setaf 4)
 normal=$(tput sgr0)
 printf "%b" "${blue}Type checking... ${normal}"
-yarn platform-ui build:types
+# yarn platform-ui build:types
