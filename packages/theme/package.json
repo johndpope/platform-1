@@ -15,7 +15,7 @@
     "dev:types": "tsc --noEmit --watch",
     "dev": "vite",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "storybook:build": "storybook build"
   },
   "dependencies": {
     "@emotion/css": "^11.11.0",
