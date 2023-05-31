@@ -769,9 +769,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@stability/platform-ui@workspace:packages/sandbox-text-to-image":
+"@stability/sandbox-text-to-image@workspace:packages/sandbox-text-to-image":
   version: 0.0.0-use.local
-  resolution: "@stability/platform-ui@workspace:packages/sandbox-text-to-image"
+  resolution: "@stability/sandbox-text-to-image@workspace:packages/sandbox-text-to-image"
   dependencies:
     "@emotion/css": ^11.11.0
     "@tailwindcss/typography": ^0.5.9
@@ -827,6 +827,8 @@ __metadata:
     eslint-plugin-react: ^7.32.2
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-react-refresh: ^0.4.1
+    openapi-fetch: ^0.2.1
+    openapi-typescript: latest
     prettier: ^2.8.8
     rimraf: ^5.0.1
     tsc-alias: ^1.8.6
@@ -1600,6 +1602,15 @@ __metadata:
     base64-js: ^1.3.1
     ieee754: ^1.2.1
   checksum: 5ad23293d9a731e4318e420025800b42bf0d264004c0286c8cc010af7a270c7a0f6522e84f54b9ad65cbd6db20b8badbfd8d2ebf4f80fa03dab093b89e68c3f9
+  languageName: node
+  linkType: hard
+
+"busboy@npm:^1.6.0":
+  version: 1.6.0
+  resolution: "busboy@npm:1.6.0"
+  dependencies:
+    streamsearch: ^1.1.0
+  checksum: 32801e2c0164e12106bf236291a00795c3c4e4b709ae02132883fe8478ba2ae23743b11c5735a0aae8afe65ac4b6ca4568b91f0d9fed1fdbc32ede824a73746e
   languageName: node
   linkType: hard
 
@@ -4191,6 +4202,29 @@ __metadata:
   languageName: node
   linkType: hard
 
+"openapi-fetch@npm:^0.2.1":
+  version: 0.2.1
+  resolution: "openapi-fetch@npm:0.2.1"
+  checksum: a595519ca49b2ae28266615781bf2edc7d856d88e4e71b3b6abbe2a04adce38915ccc8e470bbeb0a0925d115f9b2c51c6685c6ba90b70461c38e4c8419a337a1
+  languageName: node
+  linkType: hard
+
+"openapi-typescript@npm:latest":
+  version: 6.2.6
+  resolution: "openapi-typescript@npm:6.2.6"
+  dependencies:
+    ansi-colors: ^4.1.3
+    fast-glob: ^3.2.12
+    js-yaml: ^4.1.0
+    supports-color: ^9.3.1
+    undici: ^5.22.1
+    yargs-parser: ^21.1.1
+  bin:
+    openapi-typescript: bin/cli.js
+  checksum: d3b734db6180184b59aabe0fb313b4d50314c8ccb389d783309815b7e0d0be6fe8919cde1df72a489bf39889f1d20820146c338cb006e77d8838230734a8e12d
+  languageName: node
+  linkType: hard
+
 "optionator@npm:^0.9.1":
   version: 0.9.1
   resolution: "optionator@npm:0.9.1"
@@ -5112,6 +5146,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"streamsearch@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "streamsearch@npm:1.1.0"
+  checksum: 1cce16cea8405d7a233d32ca5e00a00169cc0e19fbc02aa839959985f267335d435c07f96e5e0edd0eadc6d39c98d5435fb5bbbdefc62c41834eadc5622ad942
+  languageName: node
+  linkType: hard
+
 "string-argv@npm:^0.3.1":
   version: 0.3.2
   resolution: "string-argv@npm:0.3.2"
@@ -5278,6 +5319,13 @@ __metadata:
   dependencies:
     has-flag: ^4.0.0
   checksum: 3dda818de06ebbe5b9653e07842d9479f3555ebc77e9a0280caf5a14fb877ffee9ed57007c3b78f5a6324b8dbeec648d9e97a24e2ed9fdb81ddc69ea07100f4a
+  languageName: node
+  linkType: hard
+
+"supports-color@npm:^9.3.1":
+  version: 9.3.1
+  resolution: "supports-color@npm:9.3.1"
+  checksum: 00c4d1082a7ba0ee21cba1d4e4a466642635412e40476777b530aa5110d035e99a420cd048e1fb6811f2254c0946095fbb87a1eccf1af1d1ca45ab0a4535db93
   languageName: node
   linkType: hard
 
@@ -5545,6 +5593,15 @@ __metadata:
     has-symbols: ^1.0.3
     which-boxed-primitive: ^1.0.2
   checksum: b7a1cf5862b5e4b5deb091672ffa579aa274f648410009c81cca63fed3b62b610c4f3b773f912ce545bb4e31edc3138975b5bc777fc6e4817dca51affb6380e9
+  languageName: node
+  linkType: hard
+
+"undici@npm:^5.22.1":
+  version: 5.22.1
+  resolution: "undici@npm:5.22.1"
+  dependencies:
+    busboy: ^1.6.0
+  checksum: 048a3365f622be44fb319316cedfaa241c59cf7f3368ae7667a12323447e1822e8cc3d00f6956c852d1478a6fde1cbbe753f49e05f2fdaed229693e716ebaf35
   languageName: node
   linkType: hard
 

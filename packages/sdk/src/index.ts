@@ -1,1 +1,1 @@
-export * from "~/Test";
+console.log("Hello, World!");

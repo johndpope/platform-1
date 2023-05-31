@@ -10,7 +10,8 @@
     "clean": "rimraf lib && rimraf node_modules",
     "lint": "eslint \"./src/**/*.{ts}\"",
     "lint:fix": "yarn lint --fix",
-    "build:types": "tsc --project tsconfig.json && tsc-alias",
+    "generate:rest-api-types": "openapi-typescript ./src/REST/OpenAPI.json --output ./src/REST/OpenAPI.generated.ts",
+    "build:types": "yarn generate:api-types && tsc --project tsconfig.json && tsc-alias",
     "build:javascript": "tsx scripts/Build.ts",
     "build": "yarn build:types && yarn build:javascript",
     "dev": "nodemon --watch src --ext ts,json --exec \"yarn build\""
@@ -28,10 +29,14 @@
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.1",
+    "openapi-typescript": "latest",
     "prettier": "^2.8.8",
     "rimraf": "^5.0.1",
     "tsc-alias": "^1.8.6",
     "tsx": "^3.12.7",
     "typescript": "5.0.4"
+  },
+  "dependencies": {
+    "openapi-fetch": "^0.2.1"
   }
 }
