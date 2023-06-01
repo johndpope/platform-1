@@ -10,8 +10,9 @@ const meta = {
   component: Button,
   tags: ["autodocs"],
   argTypes: {
-    text: {
+    children: {
       description: "The text to display inside the button",
+      type: "string",
     },
     onClick: {
       description: "The function to call when the button is clicked",
@@ -29,6 +30,15 @@ const meta = {
       description: "Whether the button is disabled or not",
       type: "boolean",
     },
+    variant: {
+      description: "The variant of the button",
+      options: ["primary", "secondary"],
+      control: { type: "select" },
+    },
+    link: {
+      description: "The link to navigate to when the button is clicked",
+      type: "string",
+    }
   },
 } satisfies Meta<typeof Button>;
 
@@ -37,9 +47,26 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
-export const Default: Story = {
+export const Primary: Story = {
   args: {
-    text: "Button",
+    children: "Button",
     onClick: () => console.log("Clicked!"),
+    variant: "primary",
+  },
+};
+
+export const Secondary: Story = {
+  args: {
+    children: "Button",
+    onClick: () => console.log("Clicked!"),
+    variant: "secondary",
+  },
+};
+
+export const Link: Story = {
+  args: {
+    children: "Button",
+    onClick: () => console.log("Clicked!"),
+    link: "https://www.google.com",
   },
 };
