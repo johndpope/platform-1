@@ -72,3 +72,31 @@ export const Disabled: Story = {
     disabled: true
   }
 };
+
+export const NoIcon: Story = {
+  args: {
+    value: "test",
+    onChange: () => console.log("Changed!"),
+    placeholder: "Placeholder",
+    title: "Select",
+    options: [
+      { value: "test", label: "test" },
+      { value: "test2", label: "test2" },
+      { value: "test3", label: "test3" }
+    ]
+  }
+};
+
+export const SomeDisabled: Story = {
+  args: {
+    value: "test",
+    onChange: () => console.log("Changed!"),
+    placeholder: "Placeholder",
+    title: "Select",
+    options: [
+      { value: "test", label: "test" },
+      { value: "test2", label: "test2", disabled: true },
+      { value: "test3", label: "test3" }
+    ]
+  }
+};

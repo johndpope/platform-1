@@ -99,7 +99,11 @@ export function Select({
                       "flex h-6 select-none items-center justify-between text-sm",
                       value === option.value
                         ? "bg-[#B69FFE]"
-                        : "hover:bg-[#D1D5DB]"
+                        : "hover:bg-[#D1D5DB]",
+
+                      option.disabled
+                        ? "pointer-events-none opacity-60"
+                        : "cursor-pointer"
                     )}
                     style={{
                       // get how far left from the ref the labelRef is
