@@ -1,24 +1,43 @@
-export type Button = {
-  text: string;
+import { Link } from "../Icons";
+
+export type Button = StyleableWithChildren & {
   active?: boolean;
   disabled?: boolean;
   onClick?: () => void;
-  className?: string;
+  variant?: "primary" | "secondary";
+  link?: string;
 };
 
-export function Button({ text, active, disabled, onClick, className }: Button) {
+export function Button({
+  children,
+  active,
+  disabled,
+  onClick,
+  className,
+  variant,
+  link
+}: Button) {
   return (
     <button
       disabled={disabled}
-      onClick={onClick}
+      onClick={link && !onClick ? () => window.open(link, "_blank") : onClick}
       className={classes(
         active && "hover",
-        "rounded px-3 py-1 duration-100 hover:bg-[#b84317]",
-        disabled && "opacity-60",
+        "min-w-[20rem] rounded-lg p-2.5 text-sm text-white duration-100 focus:outline-1 focus:outline-black/10",
+        variant === "primary"
+          ? "bg-brand-orange/90"
+          : "bg-brand-amber-1 text-black",
+        disabled
+          ? "opacity-60"
+          : variant === "primary"
+          ? "hover:bg-brand-orange"
+          : "hover:bg-brand-amber-2",
+        link && "flex items-center justify-between gap-2 text-left",
         className
       )}
     >
-      {text}
+      {children}
+      {link && <Link color={variant === "primary" ? "white" : undefined} />}
     </button>
   );
 }
