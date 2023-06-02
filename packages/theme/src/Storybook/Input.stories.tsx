@@ -12,11 +12,11 @@ const meta = {
   tags: ["autodocs"],
   argTypes: {
     value: {
-      description: "The value of the textarea",
+      description: "The value of the input",
       type: "string"
     },
     onChange: {
-      description: "The function to call when the textarea is changed",
+      description: "The function to call when the input is changed",
       type: "function"
     },
     onNumberChange: {
@@ -24,19 +24,19 @@ const meta = {
       type: "function"
     },
     disabled: {
-      description: "Whether the textarea is disabled or not",
+      description: "Whether the input is disabled or not",
       type: "boolean"
     },
     autoFocus: {
-      description: "Whether the textarea is autofocused or not",
+      description: "Whether the input is autofocused or not",
       type: "boolean"
     },
     placeholder: {
-      description: "The placeholder text to display inside the textarea",
+      description: "The placeholder text to display inside the input",
       type: "string"
     },
     title: {
-      description: "The title of the textarea",
+      description: "The title of the input",
       type: "string"
     },
     number: {
