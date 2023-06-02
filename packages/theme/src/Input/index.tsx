@@ -35,7 +35,9 @@ export function Input({
       tempSpan.style.position = "absolute";
       tempSpan.style.visibility = "hidden";
       tempSpan.style.whiteSpace = "pre";
-      tempSpan.style.fontSize = "0.875rem";
+      tempSpan.style.fontSize = inputRef.current
+        ? window.getComputedStyle(inputRef.current).fontSize
+        : "0.875rem";
       tempSpan.innerHTML = `${value}`
         .replace(/&/g, "&amp;")
         .replace(/</g, "&lt;")
@@ -72,7 +74,7 @@ export function Input({
             value={value}
             onChange={(e) => {
               if (number) {
-                const number = parseInt(e.target.value);
+                const number = parseFloat(e.target.value);
                 if (!isNaN(number)) {
                   onNumberChange?.(number);
                 }
