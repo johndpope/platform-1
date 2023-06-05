@@ -160,6 +160,7 @@ export function X(props: Icon) {
       viewBox="0 0 16 16"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      className={props.className}
     >
       <path
         d="M13 3L3 13"

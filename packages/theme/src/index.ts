@@ -1,7 +1,11 @@
 import "./GlobalVariables";
-
-export * from "./Button";
-export * from "./Textarea";
-export * from "./ImageContainer";
+import "./index.css";
+export { Button } from "./Button";
+export { Textarea } from "./Textarea";
+export { ImageContainer } from "./ImageContainer";
 export * from "./Icons";
-export * from "./PickButton";
+export { PickButton } from "./PickButton";
+export { Input } from "./Input";
+export { Select } from "./Select";
+export { Modal } from "./Modal";
+export { Background } from "./Background";
