@@ -38,7 +38,7 @@ const meta = {
     link: {
       description: "The link to navigate to when the button is clicked",
       type: "string",
-    }
+    },
   },
 } satisfies Meta<typeof Button>;
 

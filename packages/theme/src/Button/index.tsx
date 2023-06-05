@@ -15,7 +15,7 @@ export function Button({
   onClick,
   className,
   variant,
-  link
+  link,
 }: Button) {
   return (
     <button
