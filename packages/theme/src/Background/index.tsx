@@ -6,7 +6,7 @@ export function Background({ className, children, title }: Background) {
   return (
     <div
       className={classes(
-        "bg-brand-amber-2 flex h-fit w-fit flex-col rounded-xl",
+        "bg-brand-amber-1 flex h-fit w-fit flex-col rounded-xl",
         className
       )}
     >

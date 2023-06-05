@@ -2,7 +2,7 @@ import { Union } from "../Icons";
 
 export type PickButton = Styleable & {
   icon?: React.ReactNode;
-  label: string;
+  label?: string;
   value: string;
   disabled?: boolean;
   onClick?: () => void;
@@ -27,7 +27,7 @@ export function PickButton({
     >
       {icon && icon}
       <div className="flex grow select-none flex-col justify-between">
-        <p className="text-xs">{label}:</p>
+        {label && <p className="text-xs">{label}:</p>}
         <p className="text-sm">{value}</p>
       </div>
       <Union />
