@@ -4,6 +4,8 @@
 
 node_modules
 
+.env
+
 .pnp.*
 .yarn/*
 !.yarn/patches

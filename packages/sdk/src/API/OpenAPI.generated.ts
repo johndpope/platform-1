@@ -3,63 +3,64 @@
  * Do not make direct changes to the file.
  */
 
+
 /** WithRequired type helpers */
 type WithRequired<T, K extends keyof T> = T & { [P in K]-?: T[P] };
 
 export interface paths {
   "/generation/{engine_id}/text-to-image": {
     /**
-     * text-to-image
+     * text-to-image 
      * @description Generate a new image from a text prompt
      */
     post: operations["textToImage"];
   };
   "/generation/{engine_id}/image-to-image": {
     /**
-     * image-to-image
+     * image-to-image 
      * @description Modify an image based on a text prompt
      */
     post: operations["imageToImage"];
   };
   "/generation/{engine_id}/image-to-image/upscale": {
     /**
-     * image-to-image/upscale
+     * image-to-image/upscale 
      * @description Create a higher resolution version of an input image.
-     *
+     * 
      * This operation outputs an image with a maximum pixel count of **4,194,304**. This is equivalent to dimensions such as `2048x2048` and `4096x1024`.
-     *
+     * 
      * By default, the input image will be upscaled by a factor of 2.  For additional control over the output dimensions, a `width` or `height` parameter may be specified.
-     *
+     * 
      * For upscaler engines that are ESRGAN-based, refer to the `RealESRGANUpscaleRequestBody` body option below. For upscaler engines that are Stable Diffusion Latent Upscaler-based, refer to the `LatentUpscalerUpscaleRequestBody` body option below.
-     *
+     * 
      * For more details on the upscaler engines, refer to the [documentation on the Platform site.](https://platform.stability.ai/docs/features/image-upscaling?tab=python)
      */
     post: operations["upscaleImage"];
   };
   "/generation/{engine_id}/image-to-image/masking": {
     /**
-     * image-to-image/masking
+     * image-to-image/masking 
      * @description Selectively modify portions of an image using a mask
      */
     post: operations["masking"];
   };
   "/engines/list": {
     /**
-     * list
+     * list 
      * @description List all engines available to your organization/user
      */
     get: operations["listEngines"];
   };
   "/user/account": {
     /**
-     * account
+     * account 
      * @description Get information about the account associated with the provided API key
      */
     get: operations["userAccount"];
   };
   "/user/balance": {
     /**
-     * balance
+     * balance 
      * @description Get the credit balance of the account/organization associated with the API key
      */
     get: operations["userBalance"];
@@ -73,64 +74,51 @@ export interface components {
     Engine: {
       description: string;
       /**
-       * @description Unique identifier for the engine
+       * @description Unique identifier for the engine 
        * @example stable-diffusion-v1-5
        */
       id: string;
       /**
-       * @description Name of the engine
+       * @description Name of the engine 
        * @example Stable Diffusion v1.5
        */
       name: string;
       /**
-       * @description The type of content this engine produces
-       * @example PICTURE
+       * @description The type of content this engine produces 
+       * @example PICTURE 
        * @enum {string}
        */
-      type:
-        | "AUDIO"
-        | "CLASSIFICATION"
-        | "PICTURE"
-        | "STORAGE"
-        | "TEXT"
-        | "VIDEO";
+      type: "AUDIO" | "CLASSIFICATION" | "PICTURE" | "STORAGE" | "TEXT" | "VIDEO";
     };
     Error: {
       /**
-       * @description A unique identifier for this particular occurrence of the problem.
+       * @description A unique identifier for this particular occurrence of the problem. 
        * @example 296a972f-666a-44a1-a3df-c9c28a1f56c0
        */
       id: string;
       /**
-       * @description The short-name of this class of errors e.g. `bad_request`.
+       * @description The short-name of this class of errors e.g. `bad_request`. 
        * @example bad_request
        */
       name: string;
       /**
-       * @description A human-readable explanation specific to this occurrence of the problem.
+       * @description A human-readable explanation specific to this occurrence of the problem. 
        * @example Header parameter Authorization is required, but not found
        */
       message: string;
     };
     /**
-     * @description How strictly the diffusion process adheres to the prompt text (higher values keep your image closer to your prompt)
-     * @default 7
+     * @description How strictly the diffusion process adheres to the prompt text (higher values keep your image closer to your prompt) 
+     * @default 7 
      * @example 7
      */
     CfgScale: number;
     /**
-     * @default NONE
-     * @example FAST_BLUE
+     * @default NONE 
+     * @example FAST_BLUE 
      * @enum {string}
      */
-    ClipGuidancePreset:
-      | "FAST_BLUE"
-      | "FAST_GREEN"
-      | "NONE"
-      | "SIMPLE"
-      | "SLOW"
-      | "SLOWER"
-      | "SLOWEST";
+    ClipGuidancePreset: "FAST_BLUE" | "FAST_GREEN" | "NONE" | "SIMPLE" | "SLOW" | "SLOWER" | "SLOWEST";
     /** @description Desired height of the output image.  Only one of `width` or `height` may be specified. */
     UpscaleImageHeight: number;
     /** @description Desired width of the output image.  Only one of `width` or `height` may be specified. */
@@ -138,50 +126,40 @@ export interface components {
     /**
      * @description Height of the image in pixels.  Must be in increments of 64 and pass the following validation:
      * - For 768 engines: <span style='display: flex; justify-content: flex-start; gap:8px'>589,824 <span>≤</span> `height * width` <span>≤</span> 1,048,576</span>
-     * - All other engines: <span style='display: flex; justify-content: flex-start; gap:8px'>262,144 <span>≤</span> `height * width` <span>≤</span> 1,048,576</span>
-     * @default 512
+     * - All other engines: <span style='display: flex; justify-content: flex-start; gap:8px'>262,144 <span>≤</span> `height * width` <span>≤</span> 1,048,576</span> 
+     * @default 512 
      * @example 512
      */
     DiffuseImageHeight: number;
     /**
      * @description Width of the image in pixels.  Must be in increments of 64 and pass the following validation:
      * - For 768 engines: <span style='display: flex; justify-content: flex-start; gap:8px'>589,824 <span>≤</span> `height * width` <span>≤</span> 1,048,576</span>
-     * - All other engines: <span style='display: flex; justify-content: flex-start; gap:8px'>262,144 <span>≤</span> `height * width` <span>≤</span> 1,048,576</span>
-     * @default 512
+     * - All other engines: <span style='display: flex; justify-content: flex-start; gap:8px'>262,144 <span>≤</span> `height * width` <span>≤</span> 1,048,576</span> 
+     * @default 512 
      * @example 512
      */
     DiffuseImageWidth: number;
     /**
-     * @description Which sampler to use for the diffusion process. If this value is omitted we'll automatically select an appropriate sampler for you.
-     * @example K_DPM_2_ANCESTRAL
+     * @description Which sampler to use for the diffusion process. If this value is omitted we'll automatically select an appropriate sampler for you. 
+     * @example K_DPM_2_ANCESTRAL 
      * @enum {string}
      */
-    Sampler:
-      | "DDIM"
-      | "DDPM"
-      | "K_DPMPP_2M"
-      | "K_DPMPP_2S_ANCESTRAL"
-      | "K_DPM_2"
-      | "K_DPM_2_ANCESTRAL"
-      | "K_EULER"
-      | "K_EULER_ANCESTRAL"
-      | "K_HEUN"
-      | "K_LMS";
+    Sampler: "DDIM" | "DDPM" | "K_DPMPP_2M" | "K_DPMPP_2S_ANCESTRAL" | "K_DPM_2" | "K_DPM_2_ANCESTRAL" | "K_EULER" | "K_EULER_ANCESTRAL" | "K_HEUN" | "K_LMS";
     /**
-     * @description Number of images to generate
-     * @default 1
+     * @description Number of images to generate 
+     * @default 1 
      * @example 1
      */
     Samples: number;
     /**
-     * @description Random noise seed (omit this option or use `0` for a random seed)
-     * @default 0
+     * @description Random noise seed (omit this option or use `0` for a random seed) 
+     * @default 0 
      * @example 0
      */
     Seed: number;
     /**
-     * @description Number of diffusion steps to run
-     * @default 50
+     * @description Number of diffusion steps to run 
+     * @default 50 
      * @example 75
      */
     Steps: number;
@@ -193,47 +171,30 @@ export interface components {
     Extras: Record<string, never>;
     /**
      * @description Pass in a style preset to guide the image model towards a particular style.
-     * This list of style presets is subject to change.
+     * This list of style presets is subject to change. 
      * @enum {string}
      */
-    StylePreset:
-      | "enhance"
-      | "anime"
-      | "photographic"
-      | "digital-art"
-      | "comic-book"
-      | "fantasy-art"
-      | "line-art"
-      | "analog-film"
-      | "neon-punk"
-      | "isometric"
-      | "low-poly"
-      | "origami"
-      | "modeling-compound"
-      | "cinematic"
-      | "3d-model"
-      | "pixel-art"
-      | "tile-texture";
+    StylePreset: "enhance" | "anime" | "photographic" | "digital-art" | "comic-book" | "fantasy-art" | "line-art" | "analog-film" | "neon-punk" | "isometric" | "low-poly" | "origami" | "modeling-compound" | "cinematic" | "3d-model" | "pixel-art" | "tile-texture";
     /** @description Text prompt for image generation */
     TextPrompt: {
       /**
-       * @description The prompt itself
+       * @description The prompt itself 
        * @example A lighthouse on a cliff
        */
       text: string;
       /**
-       * Format: float
-       * @description Weight of the prompt (use negative numbers for negative prompts)
+       * Format: float 
+       * @description Weight of the prompt (use negative numbers for negative prompts) 
        * @example 0.8167237
        */
       weight?: number;
     };
     /**
-     * TextPrompts
+     * TextPrompts 
      * @description An array of text prompts to use for generation.
-     *
+     * 
      * Given a text prompt with the text `A lighthouse on a cliff` and a weight of `0.5`, it would be represented as:
-     *
+     * 
      * <pre>
      * "text_prompts": [
      *   {
@@ -243,22 +204,22 @@ export interface components {
      * ]
      * </pre>
      */
-    TextPromptsForTextToImage: components["schemas"]["TextPrompt"][];
+    TextPromptsForTextToImage: (components["schemas"]["TextPrompt"])[];
     /**
      * @description An array of text prompts to use for generation.
-     *
+     * 
      * Due to how arrays are represented in `multipart/form-data` requests, prompts must adhere to the format `text_prompts[index][text|weight]`,
-     * where `index` is some integer used to tie the text and weight together.  While `index` does not have to be sequential, duplicate entries
+     * where `index` is some integer used to tie the text and weight together.  While `index` does not have to be sequential, duplicate entries 
      * will override previous entries, so it is recommended to use sequential indices.
-     *
+     * 
      * Given a text prompt with the text `A lighthouse on a cliff` and a weight of `0.5`, it would be represented as:
      * ```
      * text_prompts[0][text]: "A lighthouse on a cliff"
      * text_prompts[0][weight]: 0.5
      * ```
-     *
+     * 
      * To add another prompt to that request simply provide the values under a new `index`:
-     *
+     * 
      * ```
      * text_prompts[0][text]: "A lighthouse on a cliff"
      * text_prompts[0][weight]: 0.5
@@ -266,46 +227,46 @@ export interface components {
      * text_prompts[1][weight]: -0.9
      * ```
      */
-    TextPrompts: components["schemas"]["TextPrompt"][];
+    TextPrompts: (components["schemas"]["TextPrompt"])[];
     /**
-     * Format: binary
+     * Format: binary 
      * @example <image binary>
      */
     InputImage: string;
     /**
-     * Format: binary
-     * @description Image used to initialize the diffusion process, in lieu of random noise.
+     * Format: binary 
+     * @description Image used to initialize the diffusion process, in lieu of random noise. 
      * @example <image binary>
      */
     InitImage: string;
     /**
-     * Format: float
+     * Format: float 
      * @description How much influence the `init_image` has on the diffusion process. Values close to `1` will yield images very similar to the `init_image` while values close to `0` will yield images wildly different than the `init_image`. The behavior of this is meant to mirror DreamStudio's "Image Strength" slider.  <br/> <br/> This parameter is just an alternate way to set `step_schedule_start`, which is done via the calculation `1 - image_strength`. For example, passing in an Image Strength of 35% (`0.35`) would result in a `step_schedule_start` of `0.65`.
-     *
-     * @default 0.35
+     *  
+     * @default 0.35 
      * @example 0.4
      */
     InitImageStrength: number;
     /**
-     * @description Whether to use `image_strength` or `step_schedule_*` to control how much influence the `init_image` has on the result.
-     * @default IMAGE_STRENGTH
+     * @description Whether to use `image_strength` or `step_schedule_*` to control how much influence the `init_image` has on the result. 
+     * @default IMAGE_STRENGTH 
      * @enum {string}
      */
     InitImageMode: "IMAGE_STRENGTH" | "STEP_SCHEDULE";
     /**
-     * @description Skips a proportion of the start of the diffusion steps, allowing the init_image to influence the final generated image.  Lower values will result in more influence from the init_image, while higher values will result in more influence from the diffusion steps.  (e.g. a value of `0` would simply return you the init_image, where a value of `1` would return you a completely different image.)
-     * @default 0.65
+     * @description Skips a proportion of the start of the diffusion steps, allowing the init_image to influence the final generated image.  Lower values will result in more influence from the init_image, while higher values will result in more influence from the diffusion steps.  (e.g. a value of `0` would simply return you the init_image, where a value of `1` would return you a completely different image.) 
+     * @default 0.65 
      * @example 0.4
      */
     StepScheduleStart: number;
     /**
-     * @description Skips a proportion of the end of the diffusion steps, allowing the init_image to influence the final generated image.  Lower values will result in more influence from the init_image, while higher values will result in more influence from the diffusion steps.
+     * @description Skips a proportion of the end of the diffusion steps, allowing the init_image to influence the final generated image.  Lower values will result in more influence from the init_image, while higher values will result in more influence from the diffusion steps. 
      * @example 0.01
      */
     StepScheduleEnd: number;
     /**
-     * Format: binary
-     * @description Optional grayscale mask that allows for influence over which pixels are eligible for diffusion and at what strength. Must be the same dimensions as the `init_image`. Use the `mask_source` option to specify whether the white or black pixels should be inpainted.
+     * Format: binary 
+     * @description Optional grayscale mask that allows for influence over which pixels are eligible for diffusion and at what strength. Must be the same dimensions as the `init_image`. Use the `mask_source` option to specify whether the white or black pixels should be inpainted. 
      * @example <image binary>
      */
     MaskImage: string;
@@ -413,28 +374,25 @@ export interface components {
      *   "width": 512
      * }
      */
-    TextToImageRequestBody: WithRequired<
-      {
-        height?: components["schemas"]["DiffuseImageHeight"];
-        width?: components["schemas"]["DiffuseImageWidth"];
-        text_prompts: components["schemas"]["TextPromptsForTextToImage"];
-      } & components["schemas"]["GenerationRequestOptionalParams"],
-      "text_prompts"
-    >;
+    TextToImageRequestBody: WithRequired<{
+      height?: components["schemas"]["DiffuseImageHeight"];
+      width?: components["schemas"]["DiffuseImageWidth"];
+      text_prompts: components["schemas"]["TextPromptsForTextToImage"];
+    } & components["schemas"]["GenerationRequestOptionalParams"], "text_prompts">;
     AccountResponseBody: {
       /**
-       * Format: email
-       * @description The user's email
+       * Format: email 
+       * @description The user's email 
        * @example example@stability.ai
        */
       email: string;
       /**
-       * @description The user's ID
+       * @description The user's ID 
        * @example user-1234
        */
       id: string;
       /**
-       * @description The user's organizations
+       * @description The user's organizations 
        * @example [
        *   {
        *     "id": "org-5678",
@@ -450,10 +408,10 @@ export interface components {
        *   }
        * ]
        */
-      organizations: components["schemas"]["OrganizationMembership"][];
+      organizations: (components["schemas"]["OrganizationMembership"])[];
       /**
-       * Format: uri
-       * @description The user's profile picture
+       * Format: uri 
+       * @description The user's profile picture 
        * @example https://api.stability.ai/example.png
        */
       profile_picture?: string;
@@ -465,14 +423,14 @@ export interface components {
      */
     BalanceResponseBody: {
       /**
-       * Format: double
-       * @description The balance of the account/organization associated with the API key
+       * Format: double 
+       * @description The balance of the account/organization associated with the API key 
        * @example 0.41122252265928866
        */
       credits: number;
     };
     /**
-     * @description The engines available to your user/organization
+     * @description The engines available to your user/organization 
      * @example [
      *   {
      *     "description": "Stability-AI Stable Diffusion XL Beta v2.2.2",
@@ -500,14 +458,14 @@ export interface components {
      *   }
      * ]
      */
-    ListEnginesResponseBody: components["schemas"]["Engine"][];
+    ListEnginesResponseBody: (components["schemas"]["Engine"])[];
     /**
      * @description The result of the generation process.
      * - `SUCCESS` indicates success
      * - `ERROR` indicates an error
      * - `CONTENT_FILTERED` indicates the result affected by the content filter and may be blurred.
-     *
-     * This header is only present when the `Accept` is set to `image/png`.  Otherwise it is returned in the response body.
+     * 
+     * This header is only present when the `Accept` is set to `image/png`.  Otherwise it is returned in the response body. 
      * @enum {string}
      */
     FinishReason: "SUCCESS" | "ERROR" | "CONTENT_FILTERED";
@@ -527,17 +485,17 @@ export interface components {
      */
     Image: {
       /**
-       * @description Image encoded in base64
+       * @description Image encoded in base64 
        * @example Sed corporis modi et.
        */
       base64?: string;
       /**
-       * @example CONTENT_FILTERED
+       * @example CONTENT_FILTERED 
        * @enum {string}
        */
       finishReason?: "SUCCESS" | "ERROR" | "CONTENT_FILTERED";
       /**
-       * @description The seed associated with this image
+       * @description The seed associated with this image 
        * @example 1229191277
        */
       seed?: number;
@@ -580,9 +538,9 @@ export interface components {
     };
     /**
      * @description bad_request: general error for invalid parameters <br/><br/>
-     *
+     * 
      * <p style="display: flex; margin-top: -20px; margin-bottom: 0">More specific errors:</p>
-     *
+     * 
      *   - invalid_samples: Sample count may only be greater than 1 when the accept header is set to `application/json`
      *   - invalid_height_or_width: Height and width must be specified in increments of 64
      *   - invalid_file_size: The file size of one or more of the provided files is invalid
@@ -605,9 +563,9 @@ export interface components {
     };
     /**
      * @description bad_request: general error for invalid parameters <br/><br/>
-     *
+     * 
      * <p style="display: flex; margin-top: -20px; margin-bottom: 0">More specific errors:</p>
-     *
+     * 
      *   - invalid_file_size: The file size of one or more of the provided files is invalid
      *   - invalid_mime_type: The mime type of one or more of the provided files is invalid
      *   - invalid_pixel_count: The requested image would exceed the maximum pixel count of 4,194,304
@@ -623,17 +581,17 @@ export interface components {
     /** @example stable-diffusion-v1-5 */
     engineID: string;
     /**
-     * @description Allows for requests to be scoped to an organization other than the user's default.  If not provided, the user's default organization will be used.
+     * @description Allows for requests to be scoped to an organization other than the user's default.  If not provided, the user's default organization will be used. 
      * @example org-123456
      */
     organization?: string;
     /**
-     * @description Used to identify the source of requests, such as the client application or sub-organization. Optional, but recommended for organizational clarity.
+     * @description Used to identify the source of requests, such as the client application or sub-organization. Optional, but recommended for organizational clarity. 
      * @example my-great-plugin
      */
     stabilityClientID?: string;
     /**
-     * @description Used to identify the version of the application or service making the requests. Optional, but recommended for organizational clarity.
+     * @description Used to identify the version of the application or service making the requests. Optional, but recommended for organizational clarity. 
      * @example 1.2.1
      */
     stabilityClientVersion?: string;
@@ -646,7 +604,7 @@ export interface components {
     "Content-Type": "application/json" | "image/png";
     "Finish-Reason": components["schemas"]["FinishReason"];
     /**
-     * @description The seed used to generate the image.  This header is only present when the `Accept` is set to `image/png`.  Otherwise it is returned in the response body.
+     * @description The seed used to generate the image.  This header is only present when the `Accept` is set to `image/png`.  Otherwise it is returned in the response body. 
      * @example 3817857576
      */
     Seed: number;
@@ -657,8 +615,9 @@ export interface components {
 export type external = Record<string, never>;
 
 export interface operations {
+
   /**
-   * text-to-image
+   * text-to-image 
    * @description Generate a new image from a text prompt
    */
   textToImage: {
@@ -705,7 +664,7 @@ export interface operations {
           Seed: components["headers"]["Seed"];
         };
         content: {
-          "application/json": components["schemas"]["Image"][];
+          "application/json": (components["schemas"]["Image"])[];
           "image/png": string;
         };
       };
@@ -717,7 +676,7 @@ export interface operations {
     };
   };
   /**
-   * image-to-image
+   * image-to-image 
    * @description Modify an image based on a text prompt
    */
   imageToImage: {
@@ -747,7 +706,7 @@ export interface operations {
           Seed: components["headers"]["Seed"];
         };
         content: {
-          "application/json": components["schemas"]["Image"][];
+          "application/json": (components["schemas"]["Image"])[];
           "image/png": string;
         };
       };
@@ -759,15 +718,15 @@ export interface operations {
     };
   };
   /**
-   * image-to-image/upscale
+   * image-to-image/upscale 
    * @description Create a higher resolution version of an input image.
-   *
+   * 
    * This operation outputs an image with a maximum pixel count of **4,194,304**. This is equivalent to dimensions such as `2048x2048` and `4096x1024`.
-   *
+   * 
    * By default, the input image will be upscaled by a factor of 2.  For additional control over the output dimensions, a `width` or `height` parameter may be specified.
-   *
+   * 
    * For upscaler engines that are ESRGAN-based, refer to the `RealESRGANUpscaleRequestBody` body option below. For upscaler engines that are Stable Diffusion Latent Upscaler-based, refer to the `LatentUpscalerUpscaleRequestBody` body option below.
-   *
+   * 
    * For more details on the upscaler engines, refer to the [documentation on the Platform site.](https://platform.stability.ai/docs/features/image-upscaling?tab=python)
    */
   upscaleImage: {
@@ -784,9 +743,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "multipart/form-data":
-          | components["schemas"]["RealESRGANUpscaleRequestBody"]
-          | components["schemas"]["LatentUpscalerUpscaleRequestBody"];
+        "multipart/form-data": components["schemas"]["RealESRGANUpscaleRequestBody"] | components["schemas"]["LatentUpscalerUpscaleRequestBody"];
       };
     };
     responses: {
@@ -799,7 +756,7 @@ export interface operations {
           Seed: components["headers"]["Seed"];
         };
         content: {
-          "application/json": components["schemas"]["Image"][];
+          "application/json": (components["schemas"]["Image"])[];
           "image/png": string;
         };
       };
@@ -811,7 +768,7 @@ export interface operations {
     };
   };
   /**
-   * image-to-image/masking
+   * image-to-image/masking 
    * @description Selectively modify portions of an image using a mask
    */
   masking: {
@@ -842,7 +799,7 @@ export interface operations {
           Seed: components["headers"]["Seed"];
         };
         content: {
-          "application/json": components["schemas"]["Image"][];
+          "application/json": (components["schemas"]["Image"])[];
           "image/png": string;
         };
       };
@@ -854,7 +811,7 @@ export interface operations {
     };
   };
   /**
-   * list
+   * list 
    * @description List all engines available to your organization/user
    */
   listEngines: {
@@ -877,7 +834,7 @@ export interface operations {
     };
   };
   /**
-   * account
+   * account 
    * @description Get information about the account associated with the provided API key
    */
   userAccount: {
@@ -893,7 +850,7 @@ export interface operations {
     };
   };
   /**
-   * balance
+   * balance 
    * @description Get the credit balance of the account/organization associated with the API key
    */
   userBalance: {
