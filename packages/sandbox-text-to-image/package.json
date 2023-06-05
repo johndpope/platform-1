@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "type": "module",
+  "types": "dist/index.d.ts",
   "scripts": {
     "clean": "rimraf dist && rimraf node_modules",
     "lint": "eslint \"./src/**/*.{ts,tsx}\"",
@@ -16,6 +17,7 @@
   },
   "dependencies": {
     "@emotion/css": "^11.11.0",
+    "@stability/theme": "workspace:*",
     "buffer": "^6.0.3",
     "daisyui": "^2.52.0",
     "react": "^18.2.0",

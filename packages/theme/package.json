@@ -4,18 +4,40 @@
   "version": "0.0.0",
   "license": "MIT",
   "type": "module",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "style": "lib/index.css",
+  "exports": {
+    ".": {
+      "import": "./lib/index.js",
+      "require": "./lib/index.js",
+      "types": "./lib/index.d.ts"
+    },
+    "./lib": {
+      "import": "./lib/index.js",
+      "require": "./lib/index.js"
+    },
+    "./lib/index": {
+      "import": "./lib/index.js",
+      "require": "./lib/index.js"
+    },
+    "./lib/index.js": "./lib/index.js",
+    "./lib/index.d.ts": "./lib/index.d.ts"
+  },
+  "files": [
+    "lib",
+    "lib/index.css"
+  ],
   "scripts": {
     "clean": "rimraf dist && rimraf node_modules",
     "lint": "eslint \"./src/**/*.{ts,tsx}\"",
     "lint:fix": "yarn lint --fix",
-    "build:types": "tsc --noEmit",
-    "build": "yarn build:preview",
-    "build:preview": "yarn build:types && vite build --mode preview",
-    "build:production": "yarn build:types && vite build --mode production",
-    "dev:types": "tsc --noEmit --watch",
-    "dev": "vite",
+    "build:css": "tailwindcss build src/index.css -o lib/index.css",
+    "build": "tsc --build && yarn build:css",
+    "dev": "tsc --build --watch",
     "storybook": "storybook dev -p 6006",
-    "storybook:build": "storybook build"
+    "storybook:build": "storybook build",
+    "preinstall": "tsc --build"
   },
   "dependencies": {
     "@emotion/css": "^11.11.0",
