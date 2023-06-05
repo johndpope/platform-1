@@ -70,8 +70,8 @@ export const Positive: Story = {
   args: {
     value: "",
     onChange: () => console.log("Changed!"),
-    placeholder: "Placeholder",
-    title: "Textarea",
+    placeholder: "What do you want to see?",
+    title: "Positive Prompt",
     color: "positive",
   },
 };
@@ -80,8 +80,8 @@ export const Negative: Story = {
   args: {
     value: "",
     onChange: () => console.log("Changed!"),
-    placeholder: "Placeholder",
-    title: "Textarea",
+    placeholder: "What do you want to remove?",
+    title: "Negative Prompt",
     color: "negative",
   },
 };

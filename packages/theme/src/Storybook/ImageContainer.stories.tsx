@@ -32,14 +32,14 @@ type Story = StoryObj<typeof meta>;
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const Empty: Story = {
   args: {
-    title: "Empty ImageContainer",
+    title: "Image output",
     src: ""
   }
 };
 
 export const WithImage: Story = {
   args: {
-    title: "ImageContainer with image",
+    title: "Image Output",
     src: "https://picsum.photos/200/300"
   }
 };
