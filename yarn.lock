@@ -2616,7 +2616,6 @@ __metadata:
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-react-refresh: ^0.4.1
     nodemon: ^2.0.22
-    openapi-fetch: ^0.2.1
     openapi-typescript: latest
     prettier: ^2.8.8
     rimraf: ^5.0.1
@@ -9741,13 +9740,6 @@ __metadata:
     is-docker: ^2.1.1
     is-wsl: ^2.2.0
   checksum: 6388bfff21b40cb9bd8f913f9130d107f2ed4724ea81a8fd29798ee322b361ca31fa2cdfb491a5c31e43a3996cfe9566741238c7a741ada8d7af1cb78d85cf26
-  languageName: node
-  linkType: hard
-
-"openapi-fetch@npm:^0.2.1":
-  version: 0.2.1
-  resolution: "openapi-fetch@npm:0.2.1"
-  checksum: a595519ca49b2ae28266615781bf2edc7d856d88e4e71b3b6abbe2a04adce38915ccc8e470bbeb0a0925d115f9b2c51c6685c6ba90b70461c38e4c8419a337a1
   languageName: node
   linkType: hard
 
