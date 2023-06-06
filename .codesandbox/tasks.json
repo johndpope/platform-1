@@ -2,12 +2,12 @@
   "$schema": "https://codesandbox.io/schemas/tasks.json",
   "setupTasks": [
     {
-      "name": "Setup",
+      "name": "Yarn Install",
       "command": "yarn install"
     },
     {
-      "name": "Install TypeScript",
-      "command": "yarn install tsc --global"
+      "name": "Force-Update TypeScript",
+      "command": "npm install --global --force typescript"
     }
   ],
   "tasks": {
