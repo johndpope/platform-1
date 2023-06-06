@@ -1,17 +1,16 @@
-declare global {
-  interface ImportMeta {
-    env: {
-      VITE_API_KEY?: string;
-    };
-  }
-}
+import { Topbar } from "./Topbar";
 
 export function App() {
-  const [imageURL, setImageURL] = useState<string | undefined>(undefined);
-
-  useEffect(() => {
-    if (!import.meta.env.VITE_API_KEY) return;
-  }, []);
-
-  return <>{imageURL && <img src={imageURL} />}</>;
+  return (
+    <div className="flex h-screen w-screen flex-col">
+      <Topbar />
+      <iframe
+        src="https://codesandbox.io/embed/github/stability-ai/platform/tree/main/?fontsize=14&theme=dark"
+        title="Stability-AI/platform"
+        className="h-full w-full"
+        allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+        sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+      />
+    </div>
+  );
 }
