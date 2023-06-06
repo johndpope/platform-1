@@ -1,1 +1,1 @@
-export * as API from "./API";
+export * as OpenAPI from "./OpenAPI";

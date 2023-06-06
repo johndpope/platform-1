@@ -1,7 +1,4 @@
-import { API } from "@stability/sdk";
-
-type Request = API.Paths["/generation/{engine_id}/text-to-image"]["post"];
-type RequestBody = Request["requestBody"]["content"]["application/json"];
+import { OpenAPI } from "@stability/sdk";
 
 declare global {
   interface ImportMeta {
@@ -18,6 +15,15 @@ export function App() {
     if (!import.meta.env.VITE_API_KEY) return;
 
     const request = async () => {
+      const path =
+        `https://api.stability.ai/v1/generation/stable-diffusion-xl-beta-v2-2-2/text-to-image` satisfies OpenAPI.TextToImageRequestPath;
+
+      const headers = {
+        "Content-Type": "application/json",
+        Accept: "image/png",
+        Authorization: `Bearer ${import.meta.env.VITE_API_KEY}`,
+      };
+
       const body = JSON.stringify({
         text_prompts: [
           {
@@ -25,22 +31,9 @@ export function App() {
             weight: 1,
           },
         ],
-      } satisfies RequestBody);
+      } satisfies OpenAPI.TextToImageRequestBody);
 
-      const response = await fetch(
-        `https://api.stability.ai/v1/generation/stable-diffusion-xl-beta-v2-2-2/text-to-image`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "image/png",
-            Authorization: `Bearer ${import.meta.env.VITE_API_KEY}`,
-          },
-
-          body,
-        }
-      );
-
+      const response = await fetch(path, { method: "POST", headers, body });
       const image = await response.blob();
       const url = URL.createObjectURL(image);
 

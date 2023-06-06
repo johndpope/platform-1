@@ -10,7 +10,7 @@
     "clean": "rimraf lib && rimraf node_modules",
     "lint": "eslint \"./src/**/*.{ts}\"",
     "lint:fix": "yarn lint --fix",
-    "generate:rest-api-types": "openapi-typescript ./src/API/OpenAPI.json --output ./src/API/OpenAPI.generated.ts",
+    "generate:rest-api-types": "openapi-typescript ./src/OpenAPI/OpenAPI.json --output ./src/API/OpenAPI.generated.ts",
     "build:types": "yarn generate:rest-api-types && tsc --project tsconfig.json && tsc-alias",
     "build:javascript": "tsx scripts/Build.ts",
     "build": "yarn build:types && yarn build:javascript",
