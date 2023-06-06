@@ -1,6 +1,11 @@
 {
   "$schema": "https://codesandbox.io/schemas/tasks.json",
-  "setupTasks": ["yarn install"],
+  "setupTasks": [
+    {
+      "name": "Setup",
+      "command": "yarn install"
+    }
+  ],
   "tasks": {
     "text-to-image": {
       "runAtStart": true,
