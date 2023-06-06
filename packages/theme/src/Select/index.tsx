@@ -1,3 +1,4 @@
+import { createPortal } from "react-dom";
 import { useClickAway } from "react-use";
 
 export type Select = Styleable & {
@@ -29,13 +30,68 @@ export function Select({
   const [open, setOpen] = useState(false);
 
   const valueLabel = options?.find((option) => option.value === value);
+  const root = useMemo(
+    () =>
+      document.getElementById("app") ??
+      document.getElementsByTagName("html")[0] ??
+      null,
+    []
+  );
 
   const ref = useRef<HTMLDivElement>(null);
   const labelRef = useRef<HTMLParagraphElement>(null);
+  const selectRef = useRef<HTMLDivElement>(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
-  useClickAway(ref, () => {
+  useClickAway(dropdownRef, () => {
     setOpen(false);
   });
+
+  const Dropdown = () =>
+    root
+      ? createPortal(
+          <div
+            className="z-100 pointer-events-auto absolute top-full"
+            style={{
+              left: selectRef.current?.getBoundingClientRect().left ?? 0,
+              top: selectRef.current?.getBoundingClientRect().bottom ?? 0,
+              width: selectRef.current?.getBoundingClientRect().width ?? 0
+            }}
+            ref={dropdownRef}
+          >
+            <div className="bg-brand-amber-1 flex max-h-[10rem] flex-col overflow-hidden overflow-y-auto rounded border border-zinc-300">
+              {options?.map((option) => (
+                <div
+                  key={option.value}
+                  onClick={() => {
+                    onChange?.(option.value);
+                    setOpen(false);
+                  }}
+                  className={classes(
+                    "flex h-6 select-none items-center justify-between text-sm",
+                    value === option.value
+                      ? "bg-[#B69FFE]"
+                      : "hover:bg-[#D1D5DB]",
+
+                    option.disabled
+                      ? "pointer-events-none opacity-60"
+                      : "cursor-pointer"
+                  )}
+                  style={{
+                    // get how far left from the ref the labelRef is
+                    paddingLeft:
+                      (labelRef.current?.getBoundingClientRect().left ?? 0) -
+                      (ref.current?.getBoundingClientRect().left ?? 0)
+                  }}
+                >
+                  <p>{option.label}</p>
+                </div>
+              ))}
+            </div>
+          </div>,
+          root
+        )
+      : null;
 
   return (
     <>
@@ -49,6 +105,7 @@ export function Select({
             className
           )}
           onClick={() => setOpen(!open)}
+          ref={selectRef}
         >
           {icon && (
             <div className="flex shrink-0 items-center justify-center">
@@ -85,39 +142,7 @@ export function Select({
             </svg>
           </div>
 
-          {open && (
-            <div className="z-100 pointer-events-auto absolute left-0 right-0 top-full">
-              <div className="bg-brand-amber-1 flex flex-col overflow-hidden rounded border border-zinc-300">
-                {options?.map((option) => (
-                  <div
-                    key={option.value}
-                    onClick={() => {
-                      onChange?.(option.value);
-                      setOpen(false);
-                    }}
-                    className={classes(
-                      "flex h-6 select-none items-center justify-between text-sm",
-                      value === option.value
-                        ? "bg-[#B69FFE]"
-                        : "hover:bg-[#D1D5DB]",
-
-                      option.disabled
-                        ? "pointer-events-none opacity-60"
-                        : "cursor-pointer"
-                    )}
-                    style={{
-                      // get how far left from the ref the labelRef is
-                      paddingLeft:
-                        (labelRef.current?.getBoundingClientRect().left ?? 0) -
-                        (ref.current?.getBoundingClientRect().left ?? 0)
-                    }}
-                  >
-                    <p>{option.label}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
+          {open && <Dropdown />}
         </div>
       </div>
     </>
