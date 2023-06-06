@@ -165,14 +165,14 @@ export function X(props: Icon) {
       <path
         d="M13 3L3 13"
         stroke="#18181B"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M3 3L13 13"
         stroke="#18181B"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );

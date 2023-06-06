@@ -1,5 +1,5 @@
-import { Page } from "~/Page";
+import { TextToImage } from "~/TextToImage";
 
 export function App() {
-  return <Page apiKey="123" />;
+  return <TextToImage apiKey="123" />;
 }

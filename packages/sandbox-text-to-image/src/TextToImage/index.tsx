@@ -2,14 +2,13 @@ import {
   Background,
   ImageContainer,
   PickButton,
-  Textarea
+  Textarea,
 } from "@stability/theme";
 
-export type Page = {
-  apiKey: string;
-};
+export type TextToImage = { apiKey: string };
+export function TextToImage({ apiKey }: TextToImage) {
+  apiKey;
 
-export function Page({ apiKey }: Page) {
   return (
     <div className="h-screen w-screen">
       <Background title="Text-to-image" className="h-full w-full">
@@ -26,19 +25,16 @@ export function Page({ apiKey }: Page) {
               title="Negative prompt"
               placeholder="What you want to avoid generating"
             />
-
             <PickButton
               label="Model"
               value="StableDiffusion XL"
               onClick={() => console.log("Clicked!")}
             />
-
             <PickButton
               label="Style"
               value="Enhance"
               onClick={() => console.log("Clicked!")}
             />
-
             <PickButton
               value="Advanced Settings"
               onClick={() => console.log("Clicked!")}

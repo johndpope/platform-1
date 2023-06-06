@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-import "~/GlobalVariables";
 import { App } from "~/App";
+import "~/GlobalVariables";
 
 import "./index.css";
 
