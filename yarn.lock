@@ -2561,6 +2561,7 @@ __metadata:
   resolution: "@stability/sandbox-text-to-image@workspace:packages/sandbox-text-to-image"
   dependencies:
     "@emotion/css": ^11.11.0
+    "@stability/sdk": "workspace:^"
     "@stability/theme": "workspace:*"
     "@tailwindcss/typography": ^0.5.9
     "@types/react": ^18.2.7
