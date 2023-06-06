@@ -4,6 +4,10 @@
     {
       "name": "Setup",
       "command": "yarn install"
+    },
+    {
+      "name": "Install TypeScript",
+      "command": "yarn install tsc --global"
     }
   ],
   "tasks": {
