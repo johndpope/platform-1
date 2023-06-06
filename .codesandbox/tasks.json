@@ -3,9 +3,12 @@
   "setupTasks": ["yarn install"],
   "tasks": {
     "text-to-image": {
+      "runAtStart": true,
       "name": "Text-To-Image",
-      "command": "yarn sandbox-text-to-image dev",
-      "runAtStart": true
+      "command": "yarn sandbox-text-to-image dev --port 3000",
+      "preview": {
+        "port": 3000
+      }
     }
   }
 }
