@@ -84,7 +84,7 @@ export function Page({ apiKey }: Page) {
 
     setGenerating(false);
     setImageURL(url);
-  }, [apiKey, engineId, positivePrompt, negativePrompt]);
+  }, [apiKey, engineId, positivePrompt, negativePrompt, style]);
 
   return (
     <div className="h-screen w-screen">
