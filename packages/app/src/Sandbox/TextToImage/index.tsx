@@ -90,7 +90,10 @@ export function TextToImage({ apiKey, setOptions }: TextToImage) {
   ]);
 
   return (
-    <Background title="Text-to-image" className="h-full w-full">
+    <Background
+      title="Text-to-image"
+      className="h-full min-h-0 w-full overflow-y-auto"
+    >
       <div className="flex">
         <div className="flex w-fit flex-col gap-3">
           <Textarea

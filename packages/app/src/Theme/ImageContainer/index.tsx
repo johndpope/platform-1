@@ -18,9 +18,12 @@ export function ImageContainer({
     >
       {title && <p className="text-sm">{title}</p>}
       {src ? (
-        <img className="aspect-square w-80 rounded object-cover" src={src} />
+        <img
+          className="aspect-square w-[400px] rounded object-cover"
+          src={src}
+        />
       ) : (
-        <div className="h-80 w-80 rounded border border-zinc-300 bg-gray-50"></div>
+        <div className="h-[400px] w-[400px] rounded border border-zinc-300 bg-gray-50"></div>
       )}
       {children && <div className="flex">{children}</div>}
     </div>

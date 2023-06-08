@@ -19,8 +19,8 @@ export function Sandbox({ apiKey }: { apiKey?: string }) {
   }, [codeLanguage, apiKey, options]);
 
   return (
-    <div className="flex h-full w-full flex-col gap-6 overflow-y-auto p-6">
-      <div className="flex grow gap-6">
+    <div className="flex h-full max-h-full min-h-0 w-full grow flex-col gap-6 p-6">
+      <div className="flex min-h-0 grow gap-6">
         {showCode && (
           <Code
             content={code}
@@ -33,11 +33,16 @@ export function Sandbox({ apiKey }: { apiKey?: string }) {
           setOptions={setOptions}
         />
       </div>
-      <div className="flex gap-6">
+      <div className="flex min-h-0 gap-6">
         <Button onClick={() => setShowCode(!showCode)}>
           {showCode ? "Hide" : "Show"} code
         </Button>
-        <Button onClick={() => setShowCode(!showCode)}>View on github</Button>
+        <Button
+          link="https://github.com/Stability-AI/platform/blob/main/packages/app/src/Sandbox/TextToImage/index.tsx"
+          variant="secondary"
+        >
+          View on GitHub
+        </Button>
       </div>
     </div>
   );
