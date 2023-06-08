@@ -11,7 +11,7 @@ export async function request(
   cfgScale?: OpenAPI.TextToImageRequestBody["cfg_scale"],
   seed?: OpenAPI.TextToImageRequestBody["seed"],
   steps?: OpenAPI.TextToImageRequestBody["steps"]
-) {
+): Promise<[string | undefined, Error | undefined]> {
   const prompts = [
     {
       text: positivePrompt,
@@ -37,24 +37,38 @@ export async function request(
     steps,
   } satisfies OpenAPI.TextToImageRequestBody);
 
-  const response = await fetch(
-    `${
-      import.meta.env.VITE_API_URL
-    }/v1/generation/${engineId}/text-to-image` satisfies OpenAPI.TextToImageRequestPath,
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "image/png",
-        Authorization: `Bearer ${apiKey}`,
-      },
+  let response: Response;
+  try {
+    response = await fetch(
+      `${
+        import.meta.env.VITE_API_URL
+      }/v1/generation/${engineId}/text-to-image` satisfies OpenAPI.TextToImageRequestPath,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "image/png",
+          Authorization: `Bearer ${apiKey}`,
+        },
+  
+        body,
+      }
+    );
+  } catch (error: any) {
+    return [undefined, error];
+  }
 
-      body,
+  if (!response.ok) {
+    if (response.headers.get("Content-Type")?.includes("application/json")) {
+      const json = await response.json();
+      return [undefined, Error(JSON.stringify(json, null, 2))];
+    } else {
+      return [undefined, Error(await response.text())];
     }
-  );
+  }
 
   const image = await response.blob();
   const url = URL.createObjectURL(image);
 
-  return url;
+  return [url, undefined];
 }

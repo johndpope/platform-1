@@ -2,35 +2,28 @@ import { User } from "~/User";
 
 export function TopBar() {
   return (
-    <div className="flex h-16 w-full items-center justify-between px-5">
-      <div>
+    <div className="flex h-16 items-center justify-between px-5">
+      <div className="w-1/3">
         <img src="/logo.png" />
       </div>
-      <div className="flex items-center justify-center gap-6">
-        <a
-          href="/overview"
-          className="text-sm font-semibold hover:text-indigo-500"
-        >
-          Overview
-        </a>
-        <a href="/docs" className="text-sm font-semibold hover:text-indigo-500">
-          Documentation
-        </a>
-        <a
-          href="/guides"
-          className="text-sm font-semibold hover:text-indigo-500"
-        >
-          Guides
-        </a>
+      <div className="flex w-1/3 items-center justify-center gap-6">
         <a
           href="/sandbox"
           className="text-sm font-semibold hover:text-indigo-500"
         >
           Sandbox
         </a>
+        <a href="/docs" className="text-sm font-semibold hover:text-indigo-500">
+          Documentation
+        </a>
+        <a
+          href="/docs/recipes"
+          className="text-sm font-semibold hover:text-indigo-500"
+        >
+          Guides
+        </a>
       </div>
-      <div>
-        <Help />
+      <div className="flex w-1/3 items-center justify-end gap-3">
         <User.Login.Button />
       </div>
     </div>
@@ -40,8 +33,8 @@ export function TopBar() {
 function Help() {
   return (
     <svg
-      width="24"
-      height="24"
+      width="32"
+      height="32"
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

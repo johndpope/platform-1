@@ -6,7 +6,7 @@ import {
   ImageContainer,
   Input,
   Select,
-  Textarea,
+  Textarea
 } from "~/Theme";
 
 import { User } from "~/User";
@@ -28,6 +28,7 @@ export function TextToImage({ setOptions }: TextToImage) {
   const [engineId, setEngineId] = useState<string>(
     "stable-diffusion-xl-beta-v2-2-2"
   );
+  const [error, setError] = useState<string | undefined>(undefined);
 
   const [positivePrompt, setPositivePrompt] = useState<string>("");
   const [negativePrompt, setNegativePrompt] = useState<string>("");
@@ -44,8 +45,9 @@ export function TextToImage({ setOptions }: TextToImage) {
     if (!apiKey) return;
 
     setGenerating(true);
+    setError(undefined);
 
-    const url = await request(
+    const [url, error] = await request(
       apiKey,
       engineId,
       positivePrompt,
@@ -59,7 +61,12 @@ export function TextToImage({ setOptions }: TextToImage) {
     );
 
     setGenerating(false);
-    setImageURL(url);
+    if (error) {
+      setError(error.message);
+      setImageURL(undefined);
+    } else {
+      setImageURL(url);
+    }
   }, [
     apiKey,
     engineId,
@@ -70,7 +77,7 @@ export function TextToImage({ setOptions }: TextToImage) {
     height,
     cfgScale,
     steps,
-    seed,
+    seed
   ]);
 
   useEffect(() => {
@@ -83,7 +90,7 @@ export function TextToImage({ setOptions }: TextToImage) {
       height,
       cfgScale,
       steps,
-      seed,
+      seed
     });
   }, [
     engineId,
@@ -95,7 +102,7 @@ export function TextToImage({ setOptions }: TextToImage) {
     cfgScale,
     steps,
     seed,
-    setOptions,
+    setOptions
   ]);
 
   return (
@@ -103,7 +110,7 @@ export function TextToImage({ setOptions }: TextToImage) {
       title="Text-to-Image"
       className="h-full min-h-0 w-full overflow-y-auto"
     >
-      <div className="flex gap-3">
+      <div className="flex grow gap-3">
         <div className="flex w-fit flex-col gap-3">
           <Textarea
             autoFocus
@@ -127,16 +134,16 @@ export function TextToImage({ setOptions }: TextToImage) {
             options={[
               {
                 label: "Stable Diffusion XL",
-                value: "stable-diffusion-xl-beta-v2-2-2",
+                value: "stable-diffusion-xl-beta-v2-2-2"
               },
               {
                 label: "Stable Diffusion 1.5",
-                value: "stable-diffusion-v1-5",
+                value: "stable-diffusion-v1-5"
               },
               {
                 label: "Stable Diffusion 2.1",
-                value: "stable-diffusion-512-v2-1",
-              },
+                value: "stable-diffusion-512-v2-1"
+              }
             ]}
           />
           <Select
@@ -162,7 +169,7 @@ export function TextToImage({ setOptions }: TextToImage) {
               { label: "Cinematic", value: "cinematic" },
               { label: "3D Model", value: "3d-model" },
               { label: "Pixel Art", value: "pixel-art" },
-              { label: "Tile Texture", value: "tile-texture" },
+              { label: "Tile Texture", value: "tile-texture" }
             ]}
           />
           <Input
@@ -180,8 +187,26 @@ export function TextToImage({ setOptions }: TextToImage) {
             Generate
           </Button>
         </div>
-        <div className="flex h-full items-center justify-center md:w-[75%]">
-          <ImageContainer title="Output Image" src={imageURL} />
+        <div className="flex grow items-center justify-center">
+          {imageURL ? (
+            <img src={imageURL} className="rounded object-cover shadow" />
+          ) : (
+            <div className="flex w-full shrink-0 flex-col items-center justify-center">
+              <pre
+                className={classes(
+                  "text-brand-orange",
+                  error &&
+                    "rounded border border-red-300 p-3 font-mono text-red-500"
+                )}
+              >
+                {generating
+                  ? "Generating..."
+                  : error
+                  ? error
+                  : "No image generated"}
+              </pre>
+            </div>
+          )}
         </div>
       </div>
     </Background>
