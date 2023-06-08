@@ -175,3 +175,22 @@ export function TextToImage({ apiKey, setOptions }: TextToImage) {
     </Background>
   );
 }
+
+export function Buttons() {
+  return (
+    <>
+      <Button
+        link="https://stabilityai.readme.io/reference/texttoimage"
+        variant="secondary"
+      >
+        View Documentation
+      </Button>
+      <Button
+        link="https://github.com/Stability-AI/platform/blob/main/packages/app/src/Sandbox/TextToImage/index.tsx"
+        variant="secondary"
+      >
+        View on GitHub
+      </Button>
+    </>
+  );
+}

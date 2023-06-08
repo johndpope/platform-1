@@ -38,12 +38,7 @@ export function Sandbox({ apiKey }: { apiKey?: string }) {
         <Button onClick={() => setShowCode(!showCode)}>
           {showCode ? "Hide" : "Show"} code
         </Button>
-        <Button
-          link="https://github.com/Stability-AI/platform/blob/main/packages/app/src/Sandbox/TextToImage/index.tsx"
-          variant="secondary"
-        >
-          View on GitHub
-        </Button>
+        <TextToImageSandbox.Buttons />
       </div>
     </div>
   );
