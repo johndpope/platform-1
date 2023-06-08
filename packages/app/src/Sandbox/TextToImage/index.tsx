@@ -192,9 +192,9 @@ export function TextToImage({ setOptions }: TextToImage) {
             <div className="flex w-full shrink-0 flex-col items-center justify-center">
               <pre
                 className={classes(
-                  "text-brand-orange",
-                  error &&
-                    "rounded border border-red-300 p-3 font-mono text-red-500"
+                  error
+                    ? "rounded border border-red-300 p-3 font-mono text-red-500"
+                    : "text-brand-orange select-none font-sans"
                 )}
               >
                 {generating
