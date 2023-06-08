@@ -1,4 +1,4 @@
-import { TextToImage } from "~/TextToImage";
+import { TextToImage } from "./TextToImage";
 
 declare global {
   interface ImportMeta {
@@ -8,6 +8,6 @@ declare global {
   }
 }
 
-export function App() {
+export function Sandbox() {
   return <TextToImage apiKey={import.meta.env.VITE_API_KEY} />;
 }

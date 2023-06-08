@@ -2519,6 +2519,14 @@ __metadata:
   dependencies:
     "@emotion/css": ^11.11.0
     "@stability/sdk": "workspace:^"
+    "@storybook/addon-essentials": 7.0.18
+    "@storybook/addon-interactions": 7.0.18
+    "@storybook/addon-links": 7.0.18
+    "@storybook/addon-styling": ^1.0.8
+    "@storybook/blocks": 7.0.18
+    "@storybook/react": 7.0.18
+    "@storybook/react-vite": 7.0.18
+    "@storybook/testing-library": 0.0.14-next.2
     "@tailwindcss/typography": ^0.5.9
     "@types/react": ^18.2.7
     "@types/react-dom": ^18.2.4
@@ -2537,58 +2545,17 @@ __metadata:
     eslint-plugin-react: ^7.32.2
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-react-refresh: ^0.4.1
+    framer-motion: ^10.12.16
     postcss: ^8.4.24
     prettier: ^2.8.8
     prettier-plugin-tailwindcss: ^0.3.0
     react: ^18.2.0
     react-dom: ^18.2.0
     react-router-dom: ^6.11.2
+    react-use: ^17.4.0
     rimraf: ^5.0.1
     rollup-plugin-visualizer: ^5.9.0
-    tailwind-merge: ^1.12.0
-    tailwindcss: ^3.3.2
-    tsx: ^3.12.7
-    typescript: 5.0.4
-    vite: ^4.3.9
-    vite-plugin-image-optimizer: ^1.1.5
-    vite-tsconfig-paths: ^4.2.0
-    zustand: ^4.3.8
-  languageName: unknown
-  linkType: soft
-
-"@stability/sandbox-text-to-image@workspace:packages/sandbox-text-to-image":
-  version: 0.0.0-use.local
-  resolution: "@stability/sandbox-text-to-image@workspace:packages/sandbox-text-to-image"
-  dependencies:
-    "@emotion/css": ^11.11.0
-    "@stability/sdk": "workspace:^"
-    "@stability/theme": "workspace:*"
-    "@tailwindcss/typography": ^0.5.9
-    "@types/react": ^18.2.7
-    "@types/react-dom": ^18.2.4
-    "@typescript-eslint/eslint-plugin": ^5.59.8
-    "@typescript-eslint/parser": ^5.59.8
-    "@vitejs/plugin-react": ^4.0.0
-    "@vitejs/plugin-react-swc": ^3.3.1
-    autoprefixer: ^10.4.14
-    buffer: ^6.0.3
-    daisyui: ^2.52.0
-    eslint: 8.41.0
-    eslint-config-prettier: ^8.8.0
-    eslint-plugin-import: ^2.27.5
-    eslint-plugin-markdown: ^3.0.0
-    eslint-plugin-prettier: ^4.2.1
-    eslint-plugin-react: ^7.32.2
-    eslint-plugin-react-hooks: ^4.6.0
-    eslint-plugin-react-refresh: ^0.4.1
-    postcss: ^8.4.24
-    prettier: ^2.8.8
-    prettier-plugin-tailwindcss: ^0.3.0
-    react: ^18.2.0
-    react-dom: ^18.2.0
-    react-router-dom: ^6.11.2
-    rimraf: ^5.0.1
-    rollup-plugin-visualizer: ^5.9.0
+    storybook: 7.0.18
     tailwind-merge: ^1.12.0
     tailwindcss: ^3.3.2
     tsx: ^3.12.7
@@ -2623,61 +2590,6 @@ __metadata:
     tsc-alias: ^1.8.6
     tsx: ^3.12.7
     typescript: 5.0.4
-  languageName: unknown
-  linkType: soft
-
-"@stability/theme@workspace:*, @stability/theme@workspace:packages/theme":
-  version: 0.0.0-use.local
-  resolution: "@stability/theme@workspace:packages/theme"
-  dependencies:
-    "@emotion/css": ^11.11.0
-    "@storybook/addon-essentials": 7.0.18
-    "@storybook/addon-interactions": 7.0.18
-    "@storybook/addon-links": 7.0.18
-    "@storybook/addon-styling": ^1.0.8
-    "@storybook/blocks": 7.0.18
-    "@storybook/react": 7.0.18
-    "@storybook/react-vite": 7.0.18
-    "@storybook/testing-library": 0.0.14-next.2
-    "@tailwindcss/typography": ^0.5.9
-    "@types/react": ^18.2.7
-    "@types/react-dom": ^18.2.4
-    "@typescript-eslint/eslint-plugin": ^5.59.8
-    "@typescript-eslint/parser": ^5.59.8
-    "@vitejs/plugin-react": ^4.0.0
-    "@vitejs/plugin-react-swc": ^3.3.1
-    autoprefixer: ^10.4.14
-    buffer: ^6.0.3
-    daisyui: ^2.52.0
-    eslint: 8.41.0
-    eslint-config-prettier: ^8.8.0
-    eslint-plugin-import: ^2.27.5
-    eslint-plugin-markdown: ^3.0.0
-    eslint-plugin-prettier: ^4.2.1
-    eslint-plugin-react: ^7.32.2
-    eslint-plugin-react-hooks: ^4.6.0
-    eslint-plugin-react-refresh: ^0.4.1
-    eslint-plugin-storybook: ^0.6.12
-    framer-motion: ^10.12.16
-    postcss: ^8.4.24
-    prettier: ^2.8.8
-    prettier-plugin-tailwindcss: ^0.3.0
-    prop-types: 15.8.1
-    react: ^18.2.0
-    react-dom: ^18.2.0
-    react-router-dom: ^6.11.2
-    react-use: ^17.4.0
-    rimraf: ^5.0.1
-    rollup-plugin-visualizer: ^5.9.0
-    storybook: 7.0.18
-    tailwind-merge: ^1.12.0
-    tailwindcss: ^3.3.2
-    tsx: ^3.12.7
-    typescript: 5.0.4
-    vite: ^4.3.9
-    vite-plugin-image-optimizer: ^1.1.5
-    vite-tsconfig-paths: ^4.2.0
-    zustand: ^4.3.8
   languageName: unknown
   linkType: soft
 
@@ -3377,15 +3289,6 @@ __metadata:
     recast: ^0.23.1
     ts-dedent: ^2.0.0
   checksum: 632b599012b6e00f264f24c3d8eab75804af3591e5a95ecb8b7e270ebc5f8d92a6094a0068bbceb48ce3b57db85ce695710ddab2747fe36a2cf885e1ea1984aa
-  languageName: node
-  linkType: hard
-
-"@storybook/csf@npm:^0.0.1":
-  version: 0.0.1
-  resolution: "@storybook/csf@npm:0.0.1"
-  dependencies:
-    lodash: ^4.17.15
-  checksum: fb57fa028b08a51edf44e1a2bf4be40a4607f5c6ccb58aae8924f476a42b9bbd61a0ad521cfc82196f23e6a912caae0a615e70a755e6800b284c91c509fd2de6
   languageName: node
   linkType: hard
 
@@ -4338,7 +4241,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/utils@npm:5.59.8, @typescript-eslint/utils@npm:^5.45.0":
+"@typescript-eslint/utils@npm:5.59.8":
   version: 5.59.8
   resolution: "@typescript-eslint/utils@npm:5.59.8"
   dependencies:
@@ -6599,20 +6502,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-storybook@npm:^0.6.12":
-  version: 0.6.12
-  resolution: "eslint-plugin-storybook@npm:0.6.12"
-  dependencies:
-    "@storybook/csf": ^0.0.1
-    "@typescript-eslint/utils": ^5.45.0
-    requireindex: ^1.1.0
-    ts-dedent: ^2.2.0
-  peerDependencies:
-    eslint: ">=6"
-  checksum: 8e0e160c71216019c291a5a03b797b5359076067d16ea03b3dec63594093d45398f028d15c47eb89f2ddb6e8db18cc7e376b02d921dacc4fb31bbc8da46363c8
-  languageName: node
-  linkType: hard
-
 "eslint-scope@npm:^5.1.1":
   version: 5.1.1
   resolution: "eslint-scope@npm:5.1.1"
@@ -8839,7 +8728,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lodash@npm:^4.17.15, lodash@npm:^4.17.21":
+"lodash@npm:^4.17.21":
   version: 4.17.21
   resolution: "lodash@npm:4.17.21"
   checksum: eb835a2e51d381e561e508ce932ea50a8e5a68f4ebdd771ea240d3048244a8d13658acbd502cd4829768c56f2e16bdd4340b9ea141297d472517b83868e677f7
@@ -10398,7 +10287,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prop-types@npm:15.8.1, prop-types@npm:^15.7.2, prop-types@npm:^15.8.1":
+"prop-types@npm:^15.7.2, prop-types@npm:^15.8.1":
   version: 15.8.1
   resolution: "prop-types@npm:15.8.1"
   dependencies:
@@ -10921,13 +10810,6 @@ __metadata:
   version: 2.1.1
   resolution: "require-directory@npm:2.1.1"
   checksum: fb47e70bf0001fdeabdc0429d431863e9475e7e43ea5f94ad86503d918423c1543361cc5166d713eaa7029dd7a3d34775af04764bebff99ef413111a5af18c80
-  languageName: node
-  linkType: hard
-
-"requireindex@npm:^1.1.0":
-  version: 1.2.0
-  resolution: "requireindex@npm:1.2.0"
-  checksum: 50d8b10a1ff1fdf6aea7a1870bc7bd238b0fb1917d8d7ca17fd03afc38a65dcd7a8a4eddd031f89128b5f0065833d5c92c4fef67f2c04e8624057fe626c9cf94
   languageName: node
   linkType: hard
 

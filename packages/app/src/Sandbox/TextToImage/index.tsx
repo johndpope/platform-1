@@ -1,62 +1,17 @@
 import { OpenAPI } from "@stability/sdk";
+import { request } from "./OpenAPI";
 import {
   Background,
   Button,
   ImageContainer,
   PickButton,
   Select,
-  Textarea,
-} from "@stability/theme";
+  Textarea
+} from "~/Theme";
 
 export type TextToImage = {
   apiKey?: string;
 };
-
-async function request(
-  apiKey: string,
-  engineId: string,
-  positivePrompt: string,
-  negativePrompt?: string,
-  style?: OpenAPI.TextToImageRequestBody["style_preset"]
-) {
-  const prompts = [
-    {
-      text: positivePrompt,
-      weight: 1,
-    },
-  ];
-
-  if (negativePrompt) {
-    prompts.push({
-      text: negativePrompt,
-      weight: -1,
-    });
-  }
-
-  const body = JSON.stringify({
-    text_prompts: prompts,
-    style_preset: style,
-  } satisfies OpenAPI.TextToImageRequestBody);
-
-  const response = await fetch(
-    `https://api.stability.ai/v1/generation/${engineId}/text-to-image` satisfies OpenAPI.TextToImageRequestPath,
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "image/png",
-        Authorization: `Bearer ${apiKey}`,
-      },
-
-      body,
-    }
-  );
-
-  const image = await response.blob();
-  const url = URL.createObjectURL(image);
-
-  return url;
-}
 
 export function TextToImage({ apiKey }: TextToImage) {
   const [imageURL, setImageURL] = useState<string | undefined>(undefined);
@@ -113,16 +68,16 @@ export function TextToImage({ apiKey }: TextToImage) {
               options={[
                 {
                   label: "Stable Diffusion XL",
-                  value: "stable-diffusion-xl-beta-v2-2-2",
+                  value: "stable-diffusion-xl-beta-v2-2-2"
                 },
                 {
                   label: "Stable Diffusion 1.5",
-                  value: "stable-diffusion-v1-5",
+                  value: "stable-diffusion-v1-5"
                 },
                 {
                   label: "Stable Diffusion 2.1",
-                  value: "stable-diffusion-v2-1",
-                },
+                  value: "stable-diffusion-v2-1"
+                }
               ]}
             />
             <Select
@@ -150,7 +105,7 @@ export function TextToImage({ apiKey }: TextToImage) {
                 { label: "Cinematic", value: "cinematic" },
                 { label: "3D Model", value: "3d-model" },
                 { label: "Pixel Art", value: "pixel-art" },
-                { label: "Tile Texture", value: "tile-texture" },
+                { label: "Tile Texture", value: "tile-texture" }
               ]}
             />
             <PickButton

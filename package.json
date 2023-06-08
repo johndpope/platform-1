@@ -8,9 +8,7 @@
   "scripts": {
     "postinstall": "node -e \"try { require('husky').install() } catch (e) {if (e.code !== 'MODULE_NOT_FOUND') throw e}\" && yarn build",
     "app": "yarn workspace @stability/app",
-    "sandbox-text-to-image": "yarn workspace @stability/sandbox-text-to-image",
     "sdk": "yarn workspace @stability/sdk",
-    "theme": "yarn workspace @stability/theme",
     "dev": "yarn workspaces foreach --all --interlaced --verbose --parallel --jobs unlimited run dev",
     "build": "yarn workspaces foreach --all --interlaced --verbose --topological --jobs unlimited run build",
     "clean": "yarn workspaces foreach --all --interlaced --verbose --parallel --jobs unlimited run clean && rimraf node_modules"
