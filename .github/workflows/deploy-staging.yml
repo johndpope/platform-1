@@ -19,7 +19,7 @@ jobs:
           cache: "yarn"
           cache-dependency-path: yarn.lock
       - name: Installing Dependencies
-        run: yarn install --frozen-lockfile
+        run: yarn install --immutable
       - name: Building for Staging Environment
         run: yarn build
       - name: Extract Branch Name and Commit Hash
