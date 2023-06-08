@@ -22,6 +22,25 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@auth0/auth0-react@npm:^2.1.0":
+  version: 2.1.0
+  resolution: "@auth0/auth0-react@npm:2.1.0"
+  dependencies:
+    "@auth0/auth0-spa-js": ^2.0.4
+  peerDependencies:
+    react: ^16.11.0 || ^17 || ^18
+    react-dom: ^16.11.0 || ^17 || ^18
+  checksum: f1e480d7ab79bf4b1e621f8d06172c658ac1a2fe5bcea71df7ca29afd2f642020c040865077fb7974aec2b33c5c8c7dba5d438b34e0c4478258ed0eaeef03066
+  languageName: node
+  linkType: hard
+
+"@auth0/auth0-spa-js@npm:^2.0.4":
+  version: 2.0.7
+  resolution: "@auth0/auth0-spa-js@npm:2.0.7"
+  checksum: 19ef304a805ff978889d8849362f45209bec8294788023a576ae50c10325e27d549819b0f9b5d547d48d1f6fa0720baa738e5d936a985e3418baef56866d5270
+  languageName: node
+  linkType: hard
+
 "@aw-web-design/x-default-browser@npm:1.4.88":
   version: 1.4.88
   resolution: "@aw-web-design/x-default-browser@npm:1.4.88"
@@ -2517,6 +2536,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@stability/app@workspace:packages/app"
   dependencies:
+    "@auth0/auth0-react": ^2.1.0
     "@emotion/css": ^11.11.0
     "@stability/sdk": "workspace:^"
     "@storybook/addon-essentials": 7.0.18
@@ -2528,6 +2548,7 @@ __metadata:
     "@storybook/react-vite": 7.0.18
     "@storybook/testing-library": 0.0.14-next.2
     "@tailwindcss/typography": ^0.5.9
+    "@tanstack/react-query": ^4.29.12
     "@types/react": ^18.2.7
     "@types/react-dom": ^18.2.4
     "@typescript-eslint/eslint-plugin": ^5.59.8
@@ -3693,6 +3714,32 @@ __metadata:
   peerDependencies:
     tailwindcss: "*"
   checksum: b98e21bdd1798d7e4683499893c5c20ad43fcc8955d5d6eefbe1d30e98e9b6c28949ae8f276d39be9a66fafe843597717196bc5a0a2ac0f87ef86aa051ab9611
+  languageName: node
+  linkType: hard
+
+"@tanstack/query-core@npm:4.29.11":
+  version: 4.29.11
+  resolution: "@tanstack/query-core@npm:4.29.11"
+  checksum: 2a17223f34e99e17d564a15206668eb79324da72e630a47cf41690f92fb091a8669bdc89e9ab1b0d8f0e3e8f579529cfb0aa6f10b4fc58ea81cc7e5caede9229
+  languageName: node
+  linkType: hard
+
+"@tanstack/react-query@npm:^4.29.12":
+  version: 4.29.12
+  resolution: "@tanstack/react-query@npm:4.29.12"
+  dependencies:
+    "@tanstack/query-core": 4.29.11
+    use-sync-external-store: ^1.2.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-native: "*"
+  peerDependenciesMeta:
+    react-dom:
+      optional: true
+    react-native:
+      optional: true
+  checksum: aea231af648688c5eafdbbda0667034221cca8b77e00690ab54950b7cc0296d14646931aee44fc5f18d5ce4d683b5d234b053eed5c0a5c340bbbacdab873a70b
   languageName: node
   linkType: hard
 
@@ -6465,6 +6512,15 @@ __metadata:
   peerDependencies:
     eslint: ^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0-0
   checksum: 23001801f14c1d16bf0a837ca7970d9dd94e7b560384b41db378b49b6e32dc43d6e2790de1bd737a652a86f81a08d6a91f402525061b47719328f586a57e86c3
+  languageName: node
+  linkType: hard
+
+"eslint-plugin-react-hooks@patch:eslint-plugin-react-hooks@^4.6.0#.yarn/patches/eslint-plugin-react-hooks-npm-4.6.0-b429fac07f.patch::locator=root-workspace-0b6124%40workspace%3A.":
+  version: 4.6.0
+  resolution: "eslint-plugin-react-hooks@patch:eslint-plugin-react-hooks@npm%3A4.6.0#.yarn/patches/eslint-plugin-react-hooks-npm-4.6.0-b429fac07f.patch::version=4.6.0&hash=3a187f&locator=root-workspace-0b6124%40workspace%3A."
+  peerDependencies:
+    eslint: ^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0-0
+  checksum: e405f77023e66613f985faf8868d9fb83ca7eea73f8bb73bc8567dd4bad97330b4feb0b3b2e08a6163d9a5177419ea70cea08f18e7b790da436d113a76c44312
   languageName: node
   linkType: hard
 
@@ -12474,7 +12530,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"use-sync-external-store@npm:1.2.0":
+"use-sync-external-store@npm:1.2.0, use-sync-external-store@npm:^1.2.0":
   version: 1.2.0
   resolution: "use-sync-external-store@npm:1.2.0"
   peerDependencies:

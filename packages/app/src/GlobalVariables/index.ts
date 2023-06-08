@@ -5,12 +5,13 @@ import ReactImport from "react";
 import { twMerge } from "tailwind-merge";
 
 declare global {
+  type ID = string;
+  type URLString = string;
+
   type CSSValue = string;
 
   type Styleable = { className?: string };
   type StyleableWithChildren = Styleable & React.PropsWithChildren;
-
-  type URLString = string;
 
   var React: typeof ReactImport;
   var useState: typeof ReactImport.useState;

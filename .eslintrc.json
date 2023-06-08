@@ -27,10 +27,10 @@
     "react/react-in-jsx-scope": "off",
     "react/jsx-no-undef": "off",
     "react/prop-types": "off",
-    "react/no-unknown-property": ["error", { "ignore": ["css"] }],
     "react/display-name": "off",
-
     "react-refresh/only-export-components": "warn",
+    "react/no-unknown-property": ["error", { "ignore": ["css"] }],
+    "react-hooks/rules-of-hooks": ["error", { "ignore": ["use"] }],
 
     "@typescript-eslint/no-namespace": "off",
     "@typescript-eslint/no-unused-vars": [

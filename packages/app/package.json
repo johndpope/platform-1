@@ -14,11 +14,13 @@
     "storybook": "storybook dev -p 6006",
     "storybook:build": "storybook build",
     "dev:types": "tsc --noEmit --watch",
-    "dev": "vite"
+    "dev": "vite --port 3000"
   },
   "dependencies": {
+    "@auth0/auth0-react": "^2.1.0",
     "@emotion/css": "^11.11.0",
     "@stability/sdk": "workspace:^",
+    "@tanstack/react-query": "^4.29.12",
     "buffer": "^6.0.3",
     "daisyui": "^2.52.0",
     "framer-motion": "^10.12.16",

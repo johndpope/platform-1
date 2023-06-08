@@ -18,3 +18,9 @@ export type TextToImageRequestBody =
 
 export type TextToImageResponseBody =
   TextToImageRequest["responses"][200]["content"]["application/json"];
+
+type UserAccountRequest = Paths["/user/account"]["get"];
+
+export type UserAccountRequestPath = `${BaseURL}/user/account`;
+export type UserAccountResponseBody =
+  UserAccountRequest["responses"][200]["content"]["application/json"];

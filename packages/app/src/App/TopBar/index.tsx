@@ -1,4 +1,6 @@
-export function Topbar() {
+import { User } from "~/User";
+
+export function TopBar() {
   return (
     <div className="flex h-16 w-full items-center justify-between px-5">
       <div>
@@ -29,6 +31,7 @@ export function Topbar() {
       </div>
       <div>
         <Help />
+        <User.Login.Button />
       </div>
     </div>
   );
@@ -43,7 +46,7 @@ function Help() {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g clip-path="url(#clip0_1110_24449)">
+      <g clipPath="url(#clip0_1110_24449)">
         <path
           d="M12 23C18.0751 23 23 18.0751 23 12C23 5.92487 18.0751 1 12 1C5.92487 1 1 5.92487 1 12C1 18.0751 5.92487 23 12 23Z"
           stroke="#18181B"

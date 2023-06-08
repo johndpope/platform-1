@@ -1,24 +1,28 @@
 import { OpenAPI } from "@stability/sdk";
-import { request } from "./OpenAPI";
+
 import {
   Background,
   Button,
   ImageContainer,
   PickButton,
   Select,
-  Textarea
+  Textarea,
 } from "~/Theme";
 
-export type TextToImage = {
-  apiKey?: string;
-};
+import { User } from "~/User";
 
-export function TextToImage({ apiKey }: TextToImage) {
+import { request } from "./OpenAPI";
+
+export function TextToImage() {
+  const { user } = User.use();
+  const apiKey = user?.apiKeys?.[0];
+
   const [imageURL, setImageURL] = useState<string | undefined>(undefined);
   const [generating, setGenerating] = useState<boolean>(false);
   const [engineId, setEngineId] = useState<string>(
     "stable-diffusion-xl-beta-v2-2-2"
   );
+
   const [positivePrompt, setPositivePrompt] = useState<string>("");
   const [negativePrompt, setNegativePrompt] = useState<string>("");
   const [style, setStyle] =
@@ -30,7 +34,7 @@ export function TextToImage({ apiKey }: TextToImage) {
     setGenerating(true);
 
     const url = await request(
-      apiKey,
+      apiKey.key,
       engineId,
       positivePrompt,
       negativePrompt,
@@ -68,16 +72,16 @@ export function TextToImage({ apiKey }: TextToImage) {
               options={[
                 {
                   label: "Stable Diffusion XL",
-                  value: "stable-diffusion-xl-beta-v2-2-2"
+                  value: "stable-diffusion-xl-beta-v2-2-2",
                 },
                 {
                   label: "Stable Diffusion 1.5",
-                  value: "stable-diffusion-v1-5"
+                  value: "stable-diffusion-v1-5",
                 },
                 {
                   label: "Stable Diffusion 2.1",
-                  value: "stable-diffusion-v2-1"
-                }
+                  value: "stable-diffusion-v2-1",
+                },
               ]}
             />
             <Select
@@ -105,7 +109,7 @@ export function TextToImage({ apiKey }: TextToImage) {
                 { label: "Cinematic", value: "cinematic" },
                 { label: "3D Model", value: "3d-model" },
                 { label: "Pixel Art", value: "pixel-art" },
-                { label: "Tile Texture", value: "tile-texture" }
+                { label: "Tile Texture", value: "tile-texture" },
               ]}
             />
             <PickButton
