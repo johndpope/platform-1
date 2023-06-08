@@ -4,6 +4,7 @@ import {
   Background,
   Button,
   ImageContainer,
+  Input,
   PickButton,
   Select,
   Textarea
@@ -165,10 +166,13 @@ export function TextToImage({ setOptions }: TextToImage) {
               { label: "Tile Texture", value: "tile-texture" }
             ]}
           />
-          <PickButton
-            value="Advanced Settings"
-            onClick={() => console.log("Clicked!")}
+          <Input
+            title="CFG scale"
+            number
+            value={cfgScale}
+            onNumberChange={setCfgScale}
           />
+          <Input title="Steps" number value={steps} onNumberChange={setSteps} />
           <Button
             variant="primary"
             disabled={generating || !positivePrompt || !apiKey}
