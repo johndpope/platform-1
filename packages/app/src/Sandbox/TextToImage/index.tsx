@@ -135,7 +135,7 @@ export function TextToImage({ setOptions }: TextToImage) {
               },
               {
                 label: "Stable Diffusion 2.1",
-                value: "stable-diffusion-v2-1",
+                value: "stable-diffusion-512-v2-1",
               },
             ]}
           />
@@ -186,3 +186,22 @@ export function TextToImage({ setOptions }: TextToImage) {
 }
 
 TextToImage.Examples = Examples;
+
+export function Buttons() {
+  return (
+    <>
+      <Button
+        link="https://stabilityai.readme.io/reference/texttoimage"
+        variant="secondary"
+      >
+        View Documentation
+      </Button>
+      <Button
+        link="https://github.com/Stability-AI/platform/blob/main/packages/app/src/Sandbox/TextToImage/index.tsx"
+        variant="secondary"
+      >
+        View on GitHub
+      </Button>
+    </>
+  );
+}

@@ -35,16 +35,11 @@ export function Sandbox() {
         )}
         <TextToImage setOptions={setOptions} />
       </div>
-      <div className="flex min-h-0 gap-6">
+      <div className="flex min-h-0 shrink-0 gap-6">
         <Button onClick={() => setShowCode(!showCode)}>
           {showCode ? "Hide" : "Show"} code
         </Button>
-        <Button
-          link="https://github.com/Stability-AI/platform/blob/main/packages/app/src/Sandbox/TextToImage/index.tsx"
-          variant="secondary"
-        >
-          View on GitHub
-        </Button>
+        <TextToImageSandbox.Buttons />
       </div>
     </div>
   );
