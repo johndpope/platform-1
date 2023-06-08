@@ -39,7 +39,7 @@ export function Sandbox() {
         <Button onClick={() => setShowCode(!showCode)}>
           {showCode ? "Hide" : "Show"} code
         </Button>
-        <TextToImageSandbox.Buttons />
+        <TextToImage.Buttons />
       </div>
     </div>
   );
