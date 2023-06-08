@@ -126,7 +126,7 @@ export function TextToImage({ apiKey, setOptions }: TextToImage) {
               },
               {
                 label: "Stable Diffusion 2.1",
-                value: "stable-diffusion-v2-1"
+                value: "stable-diffusion-512-v2-1"
               }
             ]}
           />
