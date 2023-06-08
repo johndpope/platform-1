@@ -12,7 +12,7 @@ export function Sandbox() {
   const [options, setOptions] = useState<any>({});
 
   const code = useMemo(() => {
-    const code = TextToImage.Examples[codeLanguage]
+    const code = TextToImage.Samples[codeLanguage]
       .trim()
       .replace("{apiKey}", "YOUR API KEY");
 
