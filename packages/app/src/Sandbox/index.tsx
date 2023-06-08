@@ -7,7 +7,7 @@ import { TextToImage } from "./TextToImage";
 export function Sandbox() {
   const apiKey = User.APIKey.use();
 
-  const [showCode, setShowCode] = useState<boolean>(false);
+  const [showCode, setShowCode] = useState(true);
   const [codeLanguage, setCodeLanguage] = useState<Languages>("typescript");
   const [options, setOptions] = useState<any>({});
 
@@ -37,7 +37,7 @@ export function Sandbox() {
       </div>
       <div className="flex min-h-0 shrink-0 gap-6">
         <Button onClick={() => setShowCode(!showCode)}>
-          {showCode ? "Hide" : "Show"} code
+          {showCode ? "Hide" : "Show"} Code
         </Button>
         <TextToImage.Buttons />
       </div>
