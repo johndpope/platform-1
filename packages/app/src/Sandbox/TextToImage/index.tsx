@@ -94,7 +94,7 @@ export function TextToImage({ apiKey, setOptions }: TextToImage) {
       title="Text-to-image"
       className="h-full min-h-0 w-full overflow-y-auto"
     >
-      <div className="flex">
+      <div className="flex gap-3">
         <div className="flex w-fit flex-col gap-3">
           <Textarea
             autoFocus
@@ -168,7 +168,7 @@ export function TextToImage({ apiKey, setOptions }: TextToImage) {
             Generate
           </Button>
         </div>
-        <div className="flex items-center justify-center md:w-[75%]">
+        <div className="flex h-full items-center justify-center md:w-[75%]">
           <ImageContainer title="Output image" src={imageURL} />
         </div>
       </div>

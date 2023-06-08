@@ -2,17 +2,20 @@ import SyntaxHighlighter from "react-syntax-highlighter";
 
 // theme styles
 import { a11yDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
+import { Copy, X } from "~/Theme";
 
 export type Languages = "python" | "javascript" | "typescript";
 
 export function Code({
   content,
   language,
-  setLanguage
+  setLanguage,
+  onClose
 }: {
   content: string;
   language: Languages;
   setLanguage: (language: Languages) => void;
+  onClose: () => void;
 }) {
   return (
     <div
@@ -35,6 +38,24 @@ export function Code({
           onClick={() => setLanguage("python")}
           active={language === "python"}
         />
+
+        {/* copy button */}
+        <button
+          onClick={() => {
+            navigator.clipboard.writeText(content);
+          }}
+          className="ml-auto rounded border border-transparent p-1 text-sm text-white duration-100 hover:bg-white hover:text-black"
+        >
+          <Copy />
+        </button>
+
+        {/* close button */}
+        <button
+          onClick={onClose}
+          className="aspect-square rounded border border-transparent p-1 px-1.5 text-sm text-white duration-100 hover:bg-white hover:text-black"
+        >
+          <X />
+        </button>
       </div>
       <SyntaxHighlighter
         language={language}

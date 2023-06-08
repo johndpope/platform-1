@@ -26,6 +26,7 @@ export function Sandbox({ apiKey }: { apiKey?: string }) {
             content={code}
             language={codeLanguage}
             setLanguage={setCodeLanguage}
+            onClose={() => setShowCode(false)}
           />
         )}
         <TextToImageSandbox.TextToImage
