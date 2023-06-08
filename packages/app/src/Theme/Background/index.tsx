@@ -13,7 +13,7 @@ export function Background({ className, children, title }: Background) {
       {title && (
         <div className="border-b border-zinc-300 p-3 text-lg">{title}</div>
       )}
-      <div className="p-3">{children}</div>
+      <div className="h-full min-h-0 p-3">{children}</div>
     </div>
   );
 }
