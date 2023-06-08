@@ -2,8 +2,8 @@ name: Deploy to Staging
 
 on:
   push:
-    # branches-ignore:
-    #   - "main"
+    branches-ignore:
+      - "main"
 
 jobs:
   build-and-deploy:
