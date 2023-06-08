@@ -4,7 +4,11 @@ export function TopBar() {
   return (
     <div className="flex h-16 items-center justify-between px-5">
       <div className="w-1/3">
-        <img src="/logo.png" />
+        <div className="w-fit">
+          <a href="/">
+            <img src="/logo.png" />
+          </a>
+        </div>
       </div>
       <div className="flex w-1/3 items-center justify-center gap-6">
         <a
