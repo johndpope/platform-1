@@ -1,3 +1,5 @@
+import { User } from "..";
+
 export * from "./APIKeys";
 
 export type APIKey = {
@@ -10,4 +12,6 @@ export namespace APIKey {
     apiKey.key.slice(0, 6) +
     apiKey.key.slice(6, -3).replace(/./g, "*") +
     apiKey.key.slice(-3);
+
+  export const use = () => User.AccessToken.use();
 }
