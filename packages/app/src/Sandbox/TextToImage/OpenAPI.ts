@@ -5,7 +5,12 @@ export async function request(
   engineId: string,
   positivePrompt: string,
   negativePrompt?: string,
-  style?: OpenAPI.TextToImageRequestBody["style_preset"]
+  style?: OpenAPI.TextToImageRequestBody["style_preset"],
+  height?: OpenAPI.TextToImageRequestBody["height"],
+  width?: OpenAPI.TextToImageRequestBody["width"],
+  cfgScale?: OpenAPI.TextToImageRequestBody["cfg_scale"],
+  seed?: OpenAPI.TextToImageRequestBody["seed"],
+  steps?: OpenAPI.TextToImageRequestBody["steps"]
 ) {
   const prompts = [
     {
@@ -24,6 +29,12 @@ export async function request(
   const body = JSON.stringify({
     text_prompts: prompts,
     style_preset: style,
+    samples: 1,
+    height,
+    width,
+    cfg_scale: cfgScale,
+    seed,
+    steps,
   } satisfies OpenAPI.TextToImageRequestBody);
 
   const response = await fetch(
