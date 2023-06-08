@@ -1,0 +1,36 @@
+name: Deploy to Staging
+
+on:
+  push:
+    branches-ignore:
+      - "main"
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository and submodules
+        uses: actions/checkout@v3
+        with:
+          submodules: recursive
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "16"
+          cache: "yarn"
+          cache-dependency-path: yarn.lock
+      - name: Installing Dependencies
+        run: yarn install --frozen-lockfile
+      - name: Building for Staging Environment
+        run: yarn build
+      - name: Extract Branch Name and Commit Hash
+        shell: bash
+        run: |
+          echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+          echo "##[set-output name=hash;]$(echo ${GITHUB_SHA})"
+        id: extract_vars
+      - name: Publish to CloudFlare
+        uses: cloudflare/wrangler-action@2.0.0
+        with:
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          apiToken: ${{ secrets.CLOUDFLARE_PLATFORM_CI_API_KEY }}
+          command: pages publish ./packages/app/dist --project-name=platform-stability --branch=${{ steps.extract_vars.outputs.branch }} --commit-hash=${{ steps.extract_vars.outputs.hash }}
