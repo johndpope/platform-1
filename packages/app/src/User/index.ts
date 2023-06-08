@@ -65,8 +65,6 @@ export namespace User {
       },
     });
 
-    console.log({ accessToken, query });
-
     const user = useMemo(
       () =>
         auth0.isAuthenticated

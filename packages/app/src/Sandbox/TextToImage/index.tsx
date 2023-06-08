@@ -21,8 +21,6 @@ export type TextToImage = {
 export function TextToImage({ setOptions }: TextToImage) {
   const apiKey = User.APIKey.use();
 
-  spy({ apiKey });
-
   const [imageURL, setImageURL] = useState<string | undefined>(undefined);
   const [generating, setGenerating] = useState<boolean>(false);
   const [engineId, setEngineId] = useState<string>(
