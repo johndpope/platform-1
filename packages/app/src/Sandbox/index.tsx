@@ -14,7 +14,7 @@ export function Sandbox() {
   const code = useMemo(() => {
     const code = TextToImage.Examples[codeLanguage]
       .trim()
-      .replace("{apiKey}", apiKey ?? "YOUR API KEY");
+      .replace("{apiKey}", "YOUR API KEY");
 
     // replace {VALUE} with the value from the options object
     return Object.entries(options).reduce((acc, [key, value]) => {
