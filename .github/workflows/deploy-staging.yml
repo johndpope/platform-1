@@ -2,14 +2,14 @@ name: Deploy to Staging
 
 on:
   push:
-    branches-ignore:
-      - "main"
+    # branches-ignore:
+    #   - "main"
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository and submodules
+      - name: Checkout Repository
         uses: actions/checkout@v3
         with:
           submodules: recursive
@@ -18,10 +18,8 @@ jobs:
           node-version: "16"
           cache: "yarn"
           cache-dependency-path: yarn.lock
-      - name: Installing Dependencies
-        run: yarn install --frozen-lockfile
-      - name: Building for Staging Environment
-        run: yarn build
+      - name: Install and Build
+        run: yarn install --immutable
       - name: Extract Branch Name and Commit Hash
         shell: bash
         run: |

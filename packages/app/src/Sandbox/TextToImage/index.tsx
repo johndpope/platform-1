@@ -11,8 +11,8 @@ import {
 
 import { User } from "~/User";
 
-import * as Examples from "./Examples";
 import { request } from "./OpenAPI";
+import * as Samples from "./Samples";
 
 export type TextToImage = {
   setOptions: (options: any) => void;
@@ -20,8 +20,6 @@ export type TextToImage = {
 
 export function TextToImage({ setOptions }: TextToImage) {
   const apiKey = User.APIKey.use();
-
-  spy({ apiKey });
 
   const [imageURL, setImageURL] = useState<string | undefined>(undefined);
   const [generating, setGenerating] = useState<boolean>(false);
@@ -232,5 +230,5 @@ export function Buttons() {
   );
 }
 
-TextToImage.Examples = Examples;
+TextToImage.Samples = Samples;
 TextToImage.Buttons = Buttons;
