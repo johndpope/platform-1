@@ -34,7 +34,7 @@ export function Sandbox({ apiKey }: { apiKey?: string }) {
           setOptions={setOptions}
         />
       </div>
-      <div className="flex min-h-0 gap-6">
+      <div className="flex min-h-0 shrink-0 gap-6">
         <Button onClick={() => setShowCode(!showCode)}>
           {showCode ? "Hide" : "Show"} code
         </Button>
