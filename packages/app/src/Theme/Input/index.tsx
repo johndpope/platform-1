@@ -75,6 +75,12 @@ export function Input({
             value={localValue}
             onChange={(e) => {
               setLocalValue(e.target.value);
+
+              if (number && !isNaN(parseFloat(e.target.value))) {
+                onNumberChange?.(parseFloat(e.target.value));
+              } else {
+                onChange?.(e.target.value);
+              }
             }}
             style={
               percentage
