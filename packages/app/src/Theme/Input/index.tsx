@@ -27,6 +27,7 @@ export function Input({
   const [focused, setFocused] = useState(false);
   const [width, setWidth] = useState(0);
   const inputRef = useRef<HTMLInputElement>(null);
+  const [localValue, setLocalValue] = useState<string>(value?.toString() ?? "");
 
   useLayoutEffect(() => {
     if (percentage) {
@@ -71,16 +72,9 @@ export function Input({
             autoFocus={autoFocus}
             disabled={disabled}
             placeholder={placeholder}
-            value={value}
+            value={localValue}
             onChange={(e) => {
-              if (number) {
-                const number = parseFloat(e.target.value);
-                if (!isNaN(number)) {
-                  onNumberChange?.(number);
-                }
-              } else {
-                onChange?.(e.target.value);
-              }
+              setLocalValue(e.target.value);
             }}
             style={
               percentage
@@ -90,7 +84,27 @@ export function Input({
                 : undefined
             }
             onFocus={() => setFocused(true)}
-            onBlur={() => setFocused(false)}
+            onBlur={() => {
+              setFocused(false);
+              if (number) {
+                // strip out all non-numeric characters
+                const numericValue = inputRef.current?.value.replace(
+                  /[^0-9.]/g,
+                  ""
+                );
+
+                const number = parseFloat(numericValue ?? "0");
+                if (!isNaN(number)) {
+                  onNumberChange?.(number);
+                  setLocalValue(number.toString());
+                } else {
+                  setLocalValue("0");
+                  onNumberChange?.(0);
+                }
+              } else {
+                onChange?.(localValue);
+              }
+            }}
             className={classes(
               "m-0 min-w-0 max-w-full grow bg-transparent p-0 text-sm focus:outline-none"
             )}
