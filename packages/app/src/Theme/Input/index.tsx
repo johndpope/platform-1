@@ -83,7 +83,16 @@ export function Input({
                   }
                 : undefined
             }
-            onFocus={() => setFocused(true)}
+            onFocus={() => {
+              setFocused(true);
+
+              if (number) {
+                inputRef.current?.setSelectionRange(
+                  0,
+                  inputRef.current.value.length
+                );
+              }
+            }}
             onBlur={() => {
               setFocused(false);
               if (number) {
