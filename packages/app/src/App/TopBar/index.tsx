@@ -1,9 +1,16 @@
 import { Link } from "react-router-dom";
 import { User } from "~/User";
 
+export const height = () => "4rem";
+
 export function TopBar() {
   return (
-    <div className="sticky top-0 z-50 flex h-16 shrink-0 items-center justify-between bg-white px-5">
+    <div
+      className="sticky top-0 z-50 flex w-full shrink-0 items-center justify-between bg-white px-5"
+      style={{
+        height: height()
+      }}
+    >
       <div className="w-1/3">
         <div className="w-fit">
           <Link to="/">

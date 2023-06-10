@@ -32,7 +32,7 @@ export function Sandbox({
   }, [codeLanguage, apiKey, options]);
 
   return (
-    <div className="flex h-full max-h-full min-h-0 w-full grow flex-col gap-6 p-6">
+    <div className="flex h-full max-h-full min-h-0 grow flex-col gap-6 p-6">
       <div className="flex min-h-0 grow gap-6">
         {showCode && (
           <Code

@@ -1,4 +1,4 @@
-import { TopBar } from "../TopBar";
+import { TopBar, height } from "../TopBar";
 
 export function Page({
   children,
@@ -9,10 +9,8 @@ export function Page({
 }) {
   return (
     <div
-      className={classes(
-        "relative z-0 flex flex-col",
-        noScroll && "h-screen w-screen"
-      )}
+      className={classes("z-0 w-full", className)}
+      style={noScroll ? { height: `calc(100vh - ${height()})` } : undefined}
     >
       <TopBar />
       {children}
