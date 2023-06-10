@@ -49,7 +49,7 @@ function SandboxButton({
 }) {
   return (
     <Link className="flex flex-col gap-2" to={href}>
-      <h1 className="text-2xl font-thin">{title}</h1>
+      <h1 className="text-2xl">{title}</h1>
       <div
         className="aspect-square w-full overflow-hidden rounded-xl"
         style={{
@@ -60,7 +60,7 @@ function SandboxButton({
           <img src={image} alt={title} className="h-full w-full object-cover" />
         )}
       </div>
-      <p className="font-thin">{description}</p>
+      <p>{description}</p>
     </Link>
   );
 }
