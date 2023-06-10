@@ -2,9 +2,18 @@ import { Button } from "~/Theme";
 import { User } from "~/User";
 
 import { Code, Languages } from "./Code";
-import { TextToImage } from "./TextToImage";
 
-export function Sandbox() {
+export function Sandbox({
+  SandboxComponent,
+  SandboxButtons,
+  samples
+}: {
+  SandboxComponent: React.FC<{
+    setOptions: (options: any) => void;
+  }>;
+  SandboxButtons: React.FC;
+  samples: Record<Languages, string>;
+}) {
   const apiKey = User.APIKey.use();
 
   const [showCode, setShowCode] = useState(true);
@@ -12,7 +21,7 @@ export function Sandbox() {
   const [options, setOptions] = useState<any>({});
 
   const code = useMemo(() => {
-    const code = TextToImage.Samples[codeLanguage]
+    const code = samples[codeLanguage]
       .trim()
       .replace("{apiKey}", "YOUR API KEY");
 
@@ -33,13 +42,13 @@ export function Sandbox() {
             onClose={() => setShowCode(false)}
           />
         )}
-        <TextToImage setOptions={setOptions} />
+        <SandboxComponent setOptions={setOptions} />
       </div>
       <div className="flex min-h-0 shrink-0 gap-6">
         <Button onClick={() => setShowCode(!showCode)}>
           {showCode ? "Hide" : "Show"} Code
         </Button>
-        <TextToImage.Buttons />
+        <SandboxButtons />
       </div>
     </div>
   );

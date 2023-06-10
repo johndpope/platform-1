@@ -1,15 +1,10 @@
-import { Sandbox } from "~/Sandbox";
-
 import { Providers } from "./Providers";
-import { TopBar } from "./TopBar";
+import { Router } from "~/Router";
 
 export function App() {
   return (
     <Providers>
-      <div className="flex h-screen w-screen flex-col">
-        <TopBar />
-        <Sandbox />
-      </div>
+      <Router />
     </Providers>
   );
 }

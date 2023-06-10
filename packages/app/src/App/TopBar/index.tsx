@@ -1,22 +1,23 @@
+import { Link } from "react-router-dom";
 import { User } from "~/User";
 
 export function TopBar() {
   return (
-    <div className="flex h-16 items-center justify-between px-5">
+    <div className="sticky top-0 z-50 flex h-16 shrink-0 items-center justify-between bg-white px-5">
       <div className="w-1/3">
         <div className="w-fit">
-          <a href="/">
+          <Link to="/">
             <img src="/logo.png" />
-          </a>
+          </Link>
         </div>
       </div>
       <div className="flex w-1/3 items-center justify-center gap-6">
-        <a
-          href="/sandbox"
+        <Link
+          to="/sandbox"
           className="text-sm font-semibold hover:text-indigo-500"
         >
           Sandbox
-        </a>
+        </Link>
         <a href="/docs" className="text-sm font-semibold hover:text-indigo-500">
           Documentation
         </a>
